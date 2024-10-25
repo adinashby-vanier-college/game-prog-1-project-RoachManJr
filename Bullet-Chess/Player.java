@@ -5,16 +5,25 @@ import greenfoot.*;
 import greenfoot.*;  
 
 public class Player extends Actor {
-    int SHOOT_DELAY = 20;
+    int shootDelay = 20;
+    int dashDelay = 200;
     int cooldownCounter = 0;
+    int dashCooldownCounter = 0;
     public void act() {
         movePlayer();
         if (Greenfoot.mouseClicked(null) && cooldownCounter<= 0) {
             shootProjectile();
-            cooldownCounter = SHOOT_DELAY;
+            cooldownCounter = shootDelay;
         }
         if (cooldownCounter > 0) {
             cooldownCounter--;
+        }
+        if (Greenfoot.isKeyDown("q") && dashCooldownCounter<= 0) {
+            dashing();
+            dashCooldownCounter = dashDelay;
+        }
+        if (dashCooldownCounter > 0) {
+            dashCooldownCounter--;
         }
     }
 
@@ -43,6 +52,22 @@ public class Player extends Actor {
                 int dy = mouseY - getY();
                 Projectile projectile = new Projectile(dx, dy);
                 getWorld().addObject(projectile, getX(), getY());
+            }
+        }
+    }
+    private void dashing() {
+        if (Greenfoot.isKeyDown("q")) {
+             if (Greenfoot.isKeyDown("w")) {
+            setLocation(getX(), getY() - 100); 
+            }
+            if (Greenfoot.isKeyDown("s")) {
+                setLocation(getX(), getY() + 100); 
+            }
+            if (Greenfoot.isKeyDown("a")) {
+                setLocation(getX() - 100, getY()); 
+            }
+            if (Greenfoot.isKeyDown("d")) {
+                setLocation(getX() + 100, getY()); 
             }
         }
     }
