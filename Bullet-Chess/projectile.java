@@ -1,38 +1,26 @@
-// WARNING: This file is auto-generated and any changes to it will be overwritten
 import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
 
-/**
- * 
- */
-public class projectile extends Actor
-{
+public class Projectile extends Actor {
+    private int dx;
+    private int dy;
+    private double speed = 5.0; 
 
-    /**
-     * Act - do whatever the projectile wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        ProjectileMove();
-        RemoveBullet();
+    public Projectile(int dx, int dy) {
+        double length = Math.sqrt(dx * dx + dy * dy); 
+        this.dx = (int)(dx / length * speed); 
+        this.dy = (int)(dy / length * speed); 
     }
 
-    /**
-     * 
-     */
-    public void ProjectileMove()
-    {
-        setLocation(getX(), getY() - 5);
+    public void act() {
+        moveBullet();
     }
 
-    /**
-     * 
-     */
-    public void RemoveBullet()
-    {
-        if (getY() == 0) {
-            getWorld().removeObject(this);
+    private void moveBullet() {
+        setLocation(getX() + dx, getY() + dy); 
+        if (isAtEdge()) {
+            getWorld().removeObject(this); 
         }
     }
 }

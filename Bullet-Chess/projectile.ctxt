@@ -1,13 +1,9 @@
 #BlueJ class context
-comment0.target=projectile
-comment0.text=\r\n\ \r\n
-comment1.params=
-comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ projectile\ wants\ to\ do.\ This\ method\ is\ called\ whenever\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment0.target=Projectile
+comment1.params=dx\ dy
+comment1.target=Projectile(int,\ int)
 comment2.params=
-comment2.target=void\ ProjectileMove()
-comment2.text=\r\n\ \r\n
+comment2.target=void\ act()
 comment3.params=
-comment3.target=void\ RemoveBullet()
-comment3.text=\r\n\ \r\n
+comment3.target=void\ moveBullet()
 numComments=4
