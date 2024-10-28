@@ -14,6 +14,6 @@ public class FlashCard extends World
      */
     public FlashCard()
     {
-        super(1200, 800, 1);
+        super(1500, 900, 1);
     }
 }

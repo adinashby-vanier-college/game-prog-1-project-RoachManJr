@@ -2,8 +2,6 @@ import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
 
-import greenfoot.*;  
-
 public class Player extends Actor {
     int shootDelay = 20;
     int dashDelay = 200;
