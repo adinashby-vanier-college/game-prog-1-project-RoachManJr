@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="FlashCard" extends="World" extends-java="World" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <variable access="private" type="int" type-java="int" name="timer" enable="true"/>
+    </fields>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve">Constructor for objects of class FlashCard.</javadoc>
+            <params/>
+            <throws/>
+            <delegate target="super" params="800,800,1" params-java="800, 800, 1"/>
+            <body>
+                <variable type="GreenfootImage" type-java="GreenfootImage" name="background" value="new GreenfootImage(&quot;cd3333.png&quot;)" value-java=" new GreenfootImage(&quot;cd3333.png&quot;)" enable="true"/>
+                <call expression="setBackground(background)" expression-java="setBackground(background)" enable="true"/>
+                <assign dest="timer" dest-java="timer" src="0" src-java="0" enable="true"/>
+                <call expression="prepare()" expression-java="prepare()" enable="true"/>
+                <call expression="showTextWithBigWhiteFont(&quot;Game Programming 1 420-141-VA&quot;,135,760)" expression-java="showTextWithBigWhiteFont(&quot;Game Programming 1 420-141-VA&quot;, 135, 760)" enable="true"/>
+                <call expression="showTextWithBigWhiteFont2(&quot;Ehsan Hussain&quot;,250,350)" expression-java="showTextWithBigWhiteFont2(&quot;Ehsan Hussain&quot;, 250, 350)" enable="true"/>
+                <call expression="showTextWithBigWhiteFont2(&quot;Lucas Coveyduck&quot;,250,400)" expression-java="showTextWithBigWhiteFont2(&quot;Lucas Coveyduck&quot;, 250, 400)" enable="true"/>
+                <call expression="showTextWithBigWhiteFont2(&quot;Ravneet Singh&quot;,250,450)" expression-java="showTextWithBigWhiteFont2(&quot;Ravneet Singh&quot;, 250, 450)" enable="true"/>
+                <call expression="showTextWithBigWhiteFont2(&quot;Tegran Tamrazyan&quot;,250,500)" expression-java="showTextWithBigWhiteFont2(&quot;Tegran Tamrazyan&quot;, 250, 500)" enable="true"/>
+            </body>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <assign dest="timer" dest-java="timer" src="timer+1" src-java="timer + 1" enable="true"/>
+                <if condition="timer&gt;=180" condition-java="timer &gt;= 180" enable="true">
+                    <ifStatements>
+                        <call expression="Greenfoot.setWorld(new TitleScreen())" expression-java="Greenfoot.setWorld( new TitleScreen())" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+        <method access="private" type="void" type-java="void" name="prepare" enable="true">
+            <javadoc xml:space="preserve">Prepare the world for the start of the program. That is: create the initial objects and add them to the world.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <variable type="VanierLogo" type-java="VanierLogo" name="vanierLogo" value="new VanierLogo()" value-java=" new VanierLogo()" enable="true"/>
+                <call expression="addObject(vanierLogo,400,150)" expression-java="addObject(vanierLogo, 400, 150)" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="showTextWithBigWhiteFont" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params>
+                <params type="String" type-java="String" name="message"/>
+                <params type="int" type-java="int" name="x"/>
+                <params type="int" type-java="int" name="y"/>
+            </params>
+            <throws/>
+            <body>
+                <variable type="GreenfootImage" type-java="GreenfootImage" name="bg" value="getBackground()" value-java="getBackground()" enable="true"/>
+                <variable type="Font" type-java="Font" name="font" value="new Font(35)" value-java=" new Font(35)" enable="true"/>
+                <call expression="bg.setFont(font)" expression-java="bg.setFont(font)" enable="true"/>
+                <call expression="bg.setColor(Color.WHITE)" expression-java="bg.setColor(Color.WHITE)" enable="true"/>
+                <call expression="bg.drawString(message,x,y)" expression-java="bg.drawString(message, x, y)" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="showTextWithBigWhiteFont2" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params>
+                <params type="String" type-java="String" name="message"/>
+                <params type="int" type-java="int" name="x"/>
+                <params type="int" type-java="int" name="y"/>
+            </params>
+            <throws/>
+            <body>
+                <variable type="GreenfootImage" type-java="GreenfootImage" name="bg" value="getBackground()" value-java="getBackground()" enable="true"/>
+                <variable type="Font" type-java="Font" name="font" value="new Font(40)" value-java=" new Font(40)" enable="true"/>
+                <call expression="bg.setFont(font)" expression-java="bg.setFont(font)" enable="true"/>
+                <call expression="bg.setColor(Color.WHITE)" expression-java="bg.setColor(Color.WHITE)" enable="true"/>
+                <call expression="bg.drawString(message,x,y)" expression-java="bg.drawString(message, x, y)" enable="true"/>
+            </body>
+        </method>
+    </methods>
+</class>

@@ -12,7 +12,7 @@
             <javadoc xml:space="preserve">Constructor for objects of class GameOverScreen.</javadoc>
             <params/>
             <throws/>
-            <delegate target="super" params="600,400,1" params-java="600, 400, 1"/>
+            <delegate target="super" params="800,800,1" params-java="800, 800, 1"/>
             <body>
                 <call expression="showTextWithBigRedFont(&quot;Game Over&quot;,180,200)" expression-java="showTextWithBigRedFont(&quot;Game Over&quot;, 180, 200)" enable="true"/>
             </body>

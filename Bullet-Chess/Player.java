@@ -38,6 +38,7 @@ public class Player extends Actor {
         if (Greenfoot.isKeyDown("d")) {
             setLocation(getX() + 3, getY()); 
         }
+    
     }
 
     private void shootProjectile()  {
@@ -48,24 +49,27 @@ public class Player extends Actor {
                 int mouseY = mouse.getY();
                 int dx = mouseX - getX();
                 int dy = mouseY - getY();
-                projectile projectile = new projectile(dx, dy);
-                getWorld().addObject(projectile, getX(), getY());
+                Projectile Projectile = new Projectile(dx, dy);
+                getWorld().addObject(Projectile, getX(), getY());
             }
         }
     }
     private void dashing() {
         if (Greenfoot.isKeyDown("q")) {
-             if (Greenfoot.isKeyDown("w")) {
-            setLocation(getX(), getY() - 100); 
+            if (Greenfoot.isKeyDown("w")) {
+                setLocation(getX(), getY() - 100); 
             }
-            if (Greenfoot.isKeyDown("s")) {
+            else if (Greenfoot.isKeyDown("s")) {
                 setLocation(getX(), getY() + 100); 
             }
-            if (Greenfoot.isKeyDown("a")) {
+            else if (Greenfoot.isKeyDown("a")) {
                 setLocation(getX() - 100, getY()); 
             }
-            if (Greenfoot.isKeyDown("d")) {
+            else if (Greenfoot.isKeyDown("d")) {
                 setLocation(getX() + 100, getY()); 
+            }
+            else {
+                setLocation(getX(), getY() - 100);
             }
         }
     }

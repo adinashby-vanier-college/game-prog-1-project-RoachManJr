@@ -21,6 +21,6 @@ public class TitleScreen extends World
      */
     public void act()
     {
-        if (Greenfoot.isKeyDown("space")) Greenfoot.setWorld(new BossLevel1());
+        if (Greenfoot.isKeyDown("space")) Greenfoot.setWorld(new HubWorld());
     }
 }
