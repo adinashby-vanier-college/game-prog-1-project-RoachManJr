@@ -14,6 +14,6 @@ public class BossLevel1 extends World
      */
     public BossLevel1()
     {
-        super(600, 400, 1);
+        super(800, 800, 1);
     }
 }

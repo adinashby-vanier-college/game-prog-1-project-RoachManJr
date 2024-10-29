@@ -48,7 +48,7 @@ public class Player extends Actor {
                 int mouseY = mouse.getY();
                 int dx = mouseX - getX();
                 int dy = mouseY - getY();
-                Projectile projectile = new Projectile(dx, dy);
+                projectile projectile = new projectile(dx, dy);
                 getWorld().addObject(projectile, getX(), getY());
             }
         }
