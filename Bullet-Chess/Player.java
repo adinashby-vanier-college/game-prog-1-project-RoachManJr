@@ -9,6 +9,10 @@ public class Player extends Actor {
     int dashCooldownCounter = 0;
     public void act() {
         movePlayer();
+        canMoveLeft();
+        canMoveRight();
+        canMoveUp();
+        canMoveDown();
         if (Greenfoot.mouseClicked(null) && cooldownCounter<= 0) {
             shootProjectile();
             cooldownCounter = shootDelay;
@@ -26,21 +30,69 @@ public class Player extends Actor {
     }
 
     private void movePlayer() {
-        if (Greenfoot.isKeyDown("w")) {
+        if (Greenfoot.isKeyDown("w") && canMoveUp()) {
             setLocation(getX(), getY() - 3); 
         }
-        if (Greenfoot.isKeyDown("s")) {
+        if (Greenfoot.isKeyDown("s") && canMoveDown()) {
             setLocation(getX(), getY() + 3); 
         }
-        if (Greenfoot.isKeyDown("a")) {
+        if (Greenfoot.isKeyDown("a") && canMoveLeft()) {
             setLocation(getX() - 3, getY()); 
         }
-        if (Greenfoot.isKeyDown("d")) {
+        if (Greenfoot.isKeyDown("d") && canMoveRight()) {
             setLocation(getX() + 3, getY()); 
         }
     
     }
 
+    public boolean canMoveLeft() {
+        boolean canMoveLeft = true;
+        int imageWidth = getImage().getWidth();
+        int imageHeight = getImage().getHeight();
+        if(getOneObjectAtOffset(imageWidth / -2 - 3, imageHeight / -2, Assets.class) != null ||
+           getOneObjectAtOffset(imageWidth / -2 - 3, imageHeight / 2 - 1, Assets.class) != null) {
+           canMoveLeft = false;
+        }
+        return canMoveLeft;
+    }
+    
+        public boolean canMoveRight() {
+        boolean canMoveRight = true;
+        int imageWidth = getImage().getWidth();
+        int imageHeight = getImage().getHeight();
+        if(getOneObjectAtOffset(imageWidth / 2 + 3, imageHeight / -2, Assets.class) != null ||
+           getOneObjectAtOffset(imageWidth / 2 + 3, imageHeight / 2 - 1, Assets.class) != null) {
+           canMoveRight = false;
+        }
+        return canMoveRight;
+    }
+    
+        public boolean canMoveUp() {
+        boolean canMoveUp = true;
+        int imageWidth = getImage().getWidth();
+        int imageHeight = getImage().getHeight();
+        if(getOneObjectAtOffset(imageWidth / -2, imageHeight / -2 - 4, RoofedOpenedDoor.class) != null ||
+           getOneObjectAtOffset(imageWidth / 2, imageHeight / -2 - 4, RoofedOpenedDoor.class) != null) {
+            
+        }
+        else if(getOneObjectAtOffset(imageWidth / -2, imageHeight / -2 - 4, Assets.class) != null ||
+           getOneObjectAtOffset(imageWidth / 2, imageHeight / -2 - 4, Assets.class) != null) {
+            canMoveUp = false;
+        }
+        return canMoveUp;
+    }
+    
+        public boolean canMoveDown() {
+        boolean canMoveDown = true;
+        int imageWidth = getImage().getWidth();
+        int imageHeight = getImage().getHeight();
+        if(getOneObjectAtOffset(imageWidth / -2, imageHeight / 2 + 2, Assets.class) != null ||
+           getOneObjectAtOffset(imageWidth / 2, imageHeight / 2 + 2, Assets.class) != null) {
+           canMoveDown = false;
+        }
+        return canMoveDown;
+    }
+    
     private void shootProjectile()  {
         if (Greenfoot.mouseClicked(null)) { // Detect click anywhere on the world
             MouseInfo mouse = Greenfoot.getMouseInfo();
