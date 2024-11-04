@@ -9,7 +9,6 @@ comment2.target=void\ moveKnight()
 comment2.text=\r\n\ \r\n
 comment3.params=
 comment3.target=void\ move1()
-comment3.text=\r\n\ \r\n
 comment4.params=
 comment4.target=void\ move2()
 comment5.params=

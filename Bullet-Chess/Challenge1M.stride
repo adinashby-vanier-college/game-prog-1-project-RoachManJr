@@ -13,8 +13,23 @@
             <params/>
             <throws/>
             <delegate target="super" params="800,800,1" params-java="800, 800, 1"/>
-            <body/>
+            <body>
+                <call expression="prepare()" expression-java="prepare()" enable="true"/>
+            </body>
         </constructor>
     </constructors>
-    <methods/>
+    <methods>
+        <method access="private" type="void" type-java="void" name="prepare" enable="true">
+            <javadoc xml:space="preserve">Prepare the world for the start of the program.
+That is: create the initial objects and add them to the world.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <variable type="RoofedWallWithBanner" type-java="RoofedWallWithBanner" name="roofedWallWithBanner" value="new RoofedWallWithBanner()" value-java=" new RoofedWallWithBanner()" enable="true"/>
+                <call expression="addObject(roofedWallWithBanner,147,238)" expression-java="addObject(roofedWallWithBanner, 147, 238)" enable="true"/>
+                <call expression="roofedWallWithBanner.setLocation(0,0)" expression-java="roofedWallWithBanner.setLocation(0, 0)" enable="true"/>
+                <call expression="removeObject(roofedWallWithBanner)" expression-java="removeObject(roofedWallWithBanner)" enable="true"/>
+            </body>
+        </method>
+    </methods>
 </class>
