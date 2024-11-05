@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=FlashingText
+comment0.text=\r\n\ \r\n
+comment1.params=text
+comment1.target=FlashingText(java.lang.String)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ updateVisibility()
+numComments=4

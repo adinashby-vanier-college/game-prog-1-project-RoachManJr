@@ -15,6 +15,12 @@ public class TitleScreen extends World
     public TitleScreen()
     {
         super(800, 800, 1);
+        
+            
+         FlashingText flashText = new FlashingText("Press SPACEBAR to continue!");
+        
+        // Add the flashing text at position (300, 200)
+        addObject(flashText, 400, 750);
     }
     /**
      * Action to transition from title to first level

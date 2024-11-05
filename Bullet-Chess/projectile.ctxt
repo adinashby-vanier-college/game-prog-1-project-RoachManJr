@@ -1,9 +1,13 @@
 #BlueJ class context
 comment0.target=Projectile
+comment0.text=\r\n\ \r\n
 comment1.params=dx\ dy
 comment1.target=Projectile(int,\ int)
+comment1.text=\r\n\ \r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ \r\n
 comment3.params=
 comment3.target=void\ moveBullet()
+comment3.text=\r\n\ \r\n
 numComments=4

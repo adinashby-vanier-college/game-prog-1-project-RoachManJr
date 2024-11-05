@@ -9,5 +9,5 @@ comment3.target=void\ moveToTarget()
 comment4.params=
 comment4.target=boolean\ atTarget()
 comment5.params=
-comment5.target=void\ moveToRandomDiagonal()
+comment5.target=void\ moveToRandomHorizontal()
 numComments=6
