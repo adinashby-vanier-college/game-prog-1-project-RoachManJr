@@ -2,7 +2,7 @@
 comment0.target=BossProjectileHorse1
 comment0.text=\r\n\ \r\n
 comment1.params=centerX\ centerY\ radius\ speed
-comment1.target=BossProjectileHorse(int,\ int,\ float,\ float)
+comment1.target=BossProjectileHorse1(int,\ int,\ float,\ float)
 comment2.params=
 comment2.target=void\ act()
 comment3.params=centerX\ centerY

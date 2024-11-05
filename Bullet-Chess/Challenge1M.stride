@@ -46,7 +46,7 @@ That is: create the initial objects and add them to the world.</javadoc>
                 <variable type="RoofedWallWithBanner" type-java="RoofedWallWithBanner" name="roofedWallWithBanner" value="new RoofedWallWithBanner()" value-java=" new RoofedWallWithBanner()" enable="true"/>
                 <call expression="addObject(roofedWallWithBanner,191,270)" expression-java="addObject(roofedWallWithBanner, 191, 270)" enable="true"/>
                 <variable type="RoofedWallWithoutBanner" type-java="RoofedWallWithoutBanner" name="roofedWallWithoutBanner" value="new RoofedWallWithoutBanner()" value-java=" new RoofedWallWithoutBanner()" enable="true"/>
-                <call expression="addObject(roofedWallWithoutBanner,311,271)" expression-java="addObject(roofedWallWithoutBanner, 311, 271)" enable="true"/>
+                <call expression="addObject(roofedWallWithoutBanner,311,272)" expression-java="addObject(roofedWallWithoutBanner, 311, 272)" enable="true"/>
                 <call expression="roofedWallWithBanner.setLocation(190,320)" expression-java="roofedWallWithBanner.setLocation(190, 320)" enable="true"/>
                 <variable type="RoofedWallWithBanner" type-java="RoofedWallWithBanner" name="roofedWallWithBanner2" value="new RoofedWallWithBanner()" value-java=" new RoofedWallWithBanner()" enable="true"/>
                 <call expression="addObject(roofedWallWithBanner2,190,320)" expression-java="addObject(roofedWallWithBanner2, 190, 320)" enable="true"/>
@@ -68,9 +68,9 @@ That is: create the initial objects and add them to the world.</javadoc>
                 <call expression="roofedWallWithBanner4.setLocation(191,320)" expression-java="roofedWallWithBanner4.setLocation(191, 320)" enable="true"/>
                 <variable type="Roof" type-java="Roof" name="roof" value="new Roof()" value-java=" new Roof()" enable="true"/>
                 <call expression="addObject(roof,214,212)" expression-java="addObject(roof, 214, 212)" enable="true"/>
-                <call expression="roof.setLocation(219,224)" expression-java="roof.setLocation(219, 224)" enable="true"/>
+                <call expression="roof.setLocation(219,225)" expression-java="roof.setLocation(219, 225)" enable="true"/>
                 <variable type="Roof" type-java="Roof" name="roof2" value="new Roof()" value-java=" new Roof()" enable="true"/>
-                <call expression="addObject(roof2,163,224)" expression-java="addObject(roof2, 163, 224)" enable="true"/>
+                <call expression="addObject(roof2,163,225)" expression-java="addObject(roof2, 163, 225)" enable="true"/>
                 <variable type="RoofedWallWithBanner" type-java="RoofedWallWithBanner" name="roofedWallWithBanner5" value="new RoofedWallWithBanner()" value-java=" new RoofedWallWithBanner()" enable="true"/>
                 <call expression="addObject(roofedWallWithBanner5,502,272)" expression-java="addObject(roofedWallWithBanner5, 502, 272)" enable="true"/>
                 <variable type="RoofedWallWithoutBanner" type-java="RoofedWallWithoutBanner" name="roofedWallWithoutBanner3" value="new RoofedWallWithoutBanner()" value-java=" new RoofedWallWithoutBanner()" enable="true"/>

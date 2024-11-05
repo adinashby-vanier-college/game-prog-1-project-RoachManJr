@@ -29,7 +29,7 @@ public class projectile extends Actor
         moveBullet();
         
         GreenfootImage myImage; //Bullet Image (DO NOT CHANGE)
-        myImage = new GreenfootImage("beeper.png");
+        myImage = new GreenfootImage("SmallerBeeper.png");
         setImage(myImage);
     }
 
@@ -39,7 +39,8 @@ public class projectile extends Actor
     private void moveBullet()
     {
         setLocation(getX() + dx, getY() + dy);
-        if (isAtEdge()) {
+        Assets assets = (Assets) getOneIntersectingObject(Assets.class);
+        if (isAtEdge() || assets != null) {
             getWorld().removeObject(this);
         }
     }

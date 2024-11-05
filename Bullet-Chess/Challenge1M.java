@@ -45,7 +45,7 @@ public class Challenge1M extends World
         RoofedWallWithBanner roofedWallWithBanner =  new  RoofedWallWithBanner();
         addObject(roofedWallWithBanner, 191, 270);
         RoofedWallWithoutBanner roofedWallWithoutBanner =  new  RoofedWallWithoutBanner();
-        addObject(roofedWallWithoutBanner, 311, 271);
+        addObject(roofedWallWithoutBanner, 311, 272);
         roofedWallWithBanner.setLocation(190, 320);
         RoofedWallWithBanner roofedWallWithBanner2 =  new  RoofedWallWithBanner();
         addObject(roofedWallWithBanner2, 190, 320);
@@ -67,9 +67,9 @@ public class Challenge1M extends World
         roofedWallWithBanner4.setLocation(191, 320);
         Roof roof =  new  Roof();
         addObject(roof, 214, 212);
-        roof.setLocation(219, 224);
+        roof.setLocation(219, 225);
         Roof roof2 =  new  Roof();
-        addObject(roof2, 163, 224);
+        addObject(roof2, 163, 225);
         RoofedWallWithBanner roofedWallWithBanner5 =  new  RoofedWallWithBanner();
         addObject(roofedWallWithBanner5, 502, 272);
         RoofedWallWithoutBanner roofedWallWithoutBanner3 =  new  RoofedWallWithoutBanner();

@@ -16,7 +16,7 @@ public class FlashCard extends World
     public FlashCard()
     {
         super(800, 800, 1);
-        GreenfootImage background =  new GreenfootImage("cd3333.png");
+        GreenfootImage background =  new  GreenfootImage("cd3333.png");
         setBackground(background);
         timer = 0;
         prepare();
@@ -34,7 +34,7 @@ public class FlashCard extends World
     {
         timer = timer + 1;
         if (timer >= 180) {
-            Greenfoot.setWorld( new TitleScreen());
+            Greenfoot.setWorld( new  TitleScreen());
         }
     }
 
@@ -43,7 +43,7 @@ public class FlashCard extends World
      */
     private void prepare()
     {
-        VanierLogo vanierLogo =  new VanierLogo();
+        VanierLogo vanierLogo =  new  VanierLogo();
         addObject(vanierLogo, 400, 150);
     }
 
@@ -53,7 +53,7 @@ public class FlashCard extends World
     public void showTextWithBigWhiteFont(String message, int x, int y)
     {
         GreenfootImage bg = getBackground();
-        Font font =  new Font(35);
+        Font font =  new  Font(35);
         bg.setFont(font);
         bg.setColor(Color.WHITE);
         bg.drawString(message, x, y);
@@ -65,7 +65,7 @@ public class FlashCard extends World
     public void showTextWithBigWhiteFont2(String message, int x, int y)
     {
         GreenfootImage bg = getBackground();
-        Font font =  new Font(40);
+        Font font =  new  Font(40);
         bg.setFont(font);
         bg.setColor(Color.WHITE);
         bg.drawString(message, x, y);
