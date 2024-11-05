@@ -1,5 +1,5 @@
 #BlueJ class context
-comment0.target=BossProjectileHorse
+comment0.target=BossProjectileHorse1
 comment0.text=\r\n\ \r\n
 comment1.params=centerX\ centerY\ radius\ speed
 comment1.target=BossProjectileHorse(int,\ int,\ float,\ float)

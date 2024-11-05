@@ -1,7 +1,13 @@
 #BlueJ class context
 comment0.target=Boss_2_2
-comment0.text=\r\n\ \r\n
 comment1.params=
-comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Boss_2_2\ wants\ to\ do.\ This\ method\ is\ called\ whenever\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-numComments=2
+comment1.target=Boss_2_2()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ moveToTarget()
+comment4.params=
+comment4.target=boolean\ atTarget()
+comment5.params=
+comment5.target=void\ moveToRandomDiagonal()
+numComments=6

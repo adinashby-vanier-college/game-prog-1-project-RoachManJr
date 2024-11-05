@@ -24,13 +24,13 @@ public class Challenge1M extends World
      */
     private void prepare()
     {
-        RooflessWallWithBanner rooflessWallWithBanner =  new  RooflessWallWithBanner();
+        RooflessWallWithBanner rooflessWallWithBanner =  new RooflessWallWithBanner();
         addObject(rooflessWallWithBanner, 110, 132);
         rooflessWallWithBanner.setLocation(59, 48);
-        RooflessWallWithoutBanner rooflessWallWithoutBanner =  new  RooflessWallWithoutBanner();
+        RooflessWallWithoutBanner rooflessWallWithoutBanner =  new RooflessWallWithoutBanner();
         addObject(rooflessWallWithoutBanner, 110, 132);
         rooflessWallWithoutBanner.setLocation(179, 48);
-        RooflessWallWithBanner rooflessWallWithBanner2 =  new  RooflessWallWithBanner();
+        RooflessWallWithBanner rooflessWallWithBanner2 =  new RooflessWallWithBanner();
         addObject(rooflessWallWithBanner2, 492, 470);
         rooflessWallWithBanner2.setLocation(179, 48);
     }
