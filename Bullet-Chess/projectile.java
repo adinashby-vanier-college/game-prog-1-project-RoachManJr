@@ -5,7 +5,7 @@ import greenfoot.*;
 /**
  * 
  */
-public class Projectile extends Actor
+public class projectile extends Actor
 {
     private int dx;
     private int dy;
@@ -14,7 +14,7 @@ public class Projectile extends Actor
     /**
      * 
      */
-    public Projectile(int dx, int dy)
+    public projectile(int dx, int dy)
     {
         double length = Math.sqrt(dx * dx + dy * dy);
         this.dx = (int)(dx / length * speed);
