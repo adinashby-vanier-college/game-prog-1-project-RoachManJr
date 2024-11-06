@@ -24,23 +24,33 @@ public class Challenge2M extends World
      */
     private void prepare()
     {
-        RooflessWallWithBanner rooflessWallWithBanner =  new RooflessWallWithBanner();
-        addObject(rooflessWallWithBanner, 110, 132);
-        rooflessWallWithBanner.setLocation(59, 48);
-        RooflessWallWithoutBanner rooflessWallWithoutBanner =  new RooflessWallWithoutBanner();
-        addObject(rooflessWallWithoutBanner, 110, 132);
-        rooflessWallWithoutBanner.setLocation(179, 48);
-        RooflessWallWithBanner rooflessWallWithBanner2 =  new RooflessWallWithBanner();
-        addObject(rooflessWallWithBanner2, 492, 470);
-        rooflessWallWithBanner2.setLocation(299, 48);
-        RooflessClosedDoor rooflessClosedDoor =  new RooflessClosedDoor();
-        addObject(rooflessClosedDoor, 406, 48);
-        RooflessWallWithBanner rooflessWallWithBanner3 =  new RooflessWallWithBanner();
-        addObject(rooflessWallWithBanner3, 529, 48);
-        rooflessWallWithBanner3.setLocation(514, 48);
-        RooflessWallWithoutBanner rooflessWallWithoutBanner2 =  new RooflessWallWithoutBanner();
-        addObject(rooflessWallWithoutBanner2, 634, 48);
-        RooflessWallWithBanner rooflessWallWithBanner4 =  new RooflessWallWithBanner();
-        addObject(rooflessWallWithBanner4, 754, 48);
+        RooflessWallWithBanner rooflessWallWithBanner =  new  RooflessWallWithBanner();
+        addObject(rooflessWallWithBanner, 53, 48);
+        RooflessWallWithoutBanner rooflessWallWithoutBanner =  new  RooflessWallWithoutBanner();
+        addObject(rooflessWallWithoutBanner, 173, 48);
+        RooflessWallWithBanner rooflessWallWithBanner2 =  new  RooflessWallWithBanner();
+        addObject(rooflessWallWithBanner2, 293, 48);
+        RooflessClosedDoor rooflessClosedDoor =  new  RooflessClosedDoor();
+        addObject(rooflessClosedDoor, 400, 48);
+        RooflessWallWithBanner rooflessWallWithBanner3 =  new  RooflessWallWithBanner();
+        addObject(rooflessWallWithBanner3, 508, 48);
+        RooflessWallWithoutBanner rooflessWallWithoutBanner2 =  new  RooflessWallWithoutBanner();
+        addObject(rooflessWallWithoutBanner2, 628, 48);
+        RooflessWallWithBanner rooflessWallWithBanner4 =  new  RooflessWallWithBanner();
+        addObject(rooflessWallWithBanner4, 748, 48);
+        RoofedWallWithoutBanner roofedWallWithoutBanner =  new  RoofedWallWithoutBanner();
+        addObject(roofedWallWithoutBanner, 340, 660);
+        RoofedWallWithoutBanner roofedWallWithoutBanner2 =  new  RoofedWallWithoutBanner();
+        addObject(roofedWallWithoutBanner2, 460, 660);
+        RoofedWallWithBanner roofedWallWithBanner =  new  RoofedWallWithBanner();
+        addObject(roofedWallWithBanner, 340, 240);
+        RoofedWallWithoutBanner roofedWallWithoutBanner3 =  new  RoofedWallWithoutBanner();
+        addObject(roofedWallWithoutBanner3, 460, 240);
+        RoofedWallWithBanner roofedWallWithBanner2 =  new  RoofedWallWithBanner();
+        addObject(roofedWallWithBanner2, 133, 478);
+        Roof roof =  new  Roof();
+        addObject(roof, 105, 381);
+        Roof roof2 =  new  Roof();
+        addObject(roof2, 161, 381);
     }
 }
