@@ -13,6 +13,7 @@ public class Player extends Actor {
         canMoveRight();
         canMoveUp();
         canMoveDown();
+        tripleShot();
         if (Greenfoot.mouseClicked(null) && cooldownCounter<= 0) {
             shootProjectile();
             cooldownCounter = shootDelay;
@@ -124,5 +125,42 @@ public class Player extends Actor {
                 setLocation(getX(), getY() - 100);
             }
         }
+    }
+    
+    private long lastShotTime = 0;
+    private int spreadAngle = 500;
+
+    public void tripleShot()
+    {
+        if (Greenfoot.isKeyDown("3") && canShoot())
+        {
+            lastShotTime = System.currentTimeMillis();
+
+            int baseRotation = getRotation();
+            int startX = getX();
+            int startY = getY();
+
+            projectile leftProjectile = new projectile(startX, startY);
+            getWorld().addObject(leftProjectile, startX, startY);
+            leftProjectile.setRotation(baseRotation - spreadAngle);
+
+            projectile centerProjectile = new projectile(startX, startY);
+            getWorld().addObject(centerProjectile, startX, startY);
+            centerProjectile.setRotation(baseRotation);
+
+            projectile rightProjectile = new projectile(startX, startY);
+            getWorld().addObject(rightProjectile, startX, startY);
+            rightProjectile.setRotation(baseRotation + spreadAngle);
+
+            leftProjectile.move(10);
+            centerProjectile.move(10);
+            rightProjectile.move(10);
+        }
+    }
+
+    private boolean canShoot()
+    {
+        long currentTime = System.currentTimeMillis();
+        return (currentTime - lastShotTime) >= 1000;
     }
 }

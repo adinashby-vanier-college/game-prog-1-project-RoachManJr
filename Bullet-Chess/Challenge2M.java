@@ -24,23 +24,23 @@ public class Challenge2M extends World
      */
     private void prepare()
     {
-        RooflessWallWithBanner rooflessWallWithBanner =  new  RooflessWallWithBanner();
+        RooflessWallWithBanner rooflessWallWithBanner =  new RooflessWallWithBanner();
         addObject(rooflessWallWithBanner, 110, 132);
         rooflessWallWithBanner.setLocation(59, 48);
-        RooflessWallWithoutBanner rooflessWallWithoutBanner =  new  RooflessWallWithoutBanner();
+        RooflessWallWithoutBanner rooflessWallWithoutBanner =  new RooflessWallWithoutBanner();
         addObject(rooflessWallWithoutBanner, 110, 132);
         rooflessWallWithoutBanner.setLocation(179, 48);
-        RooflessWallWithBanner rooflessWallWithBanner2 =  new  RooflessWallWithBanner();
+        RooflessWallWithBanner rooflessWallWithBanner2 =  new RooflessWallWithBanner();
         addObject(rooflessWallWithBanner2, 492, 470);
         rooflessWallWithBanner2.setLocation(299, 48);
-        RooflessClosedDoor rooflessClosedDoor =  new  RooflessClosedDoor();
+        RooflessClosedDoor rooflessClosedDoor =  new RooflessClosedDoor();
         addObject(rooflessClosedDoor, 406, 48);
-        RooflessWallWithBanner rooflessWallWithBanner3 =  new  RooflessWallWithBanner();
+        RooflessWallWithBanner rooflessWallWithBanner3 =  new RooflessWallWithBanner();
         addObject(rooflessWallWithBanner3, 529, 48);
         rooflessWallWithBanner3.setLocation(514, 48);
-        RooflessWallWithoutBanner rooflessWallWithoutBanner2 =  new  RooflessWallWithoutBanner();
+        RooflessWallWithoutBanner rooflessWallWithoutBanner2 =  new RooflessWallWithoutBanner();
         addObject(rooflessWallWithoutBanner2, 634, 48);
-        RooflessWallWithBanner rooflessWallWithBanner4 =  new  RooflessWallWithBanner();
+        RooflessWallWithBanner rooflessWallWithBanner4 =  new RooflessWallWithBanner();
         addObject(rooflessWallWithBanner4, 754, 48);
     }
 }
