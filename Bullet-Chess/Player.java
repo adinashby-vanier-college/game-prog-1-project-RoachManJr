@@ -13,7 +13,8 @@ public class Player extends Actor {
         canMoveRight();
         canMoveUp();
         canMoveDown();
-        tripleShot();
+        performAction();
+        doAction();
         if (Greenfoot.mouseClicked(null) && cooldownCounter<= 0) {
             shootProjectile();
             cooldownCounter = shootDelay;
@@ -127,40 +128,96 @@ public class Player extends Actor {
         }
     }
     
-    private long lastShotTime = 0;
-    private int spreadAngle = 500;
+   
+    private boolean canShoot = true; 
+    private int cooldownTime = 60;  // Cooldown time 10 sec
+    private int delayCounter = 0; 
 
-    public void tripleShot()
-    {
-        if (Greenfoot.isKeyDown("3") && canShoot())
-        {
-            lastShotTime = System.currentTimeMillis();
+    public void performAction() { 
+        handleShooting();
+        manageCooldown();
+    }
 
-            int baseRotation = getRotation();
-            int startX = getX();
-            int startY = getY();
-
-            projectile leftProjectile = new projectile(startX, startY);
-            getWorld().addObject(leftProjectile, startX, startY);
-            leftProjectile.setRotation(baseRotation - spreadAngle);
-
-            projectile centerProjectile = new projectile(startX, startY);
-            getWorld().addObject(centerProjectile, startX, startY);
-            centerProjectile.setRotation(baseRotation);
-
-            projectile rightProjectile = new projectile(startX, startY);
-            getWorld().addObject(rightProjectile, startX, startY);
-            rightProjectile.setRotation(baseRotation + spreadAngle);
-
-            leftProjectile.move(10);
-            centerProjectile.move(10);
-            rightProjectile.move(10);
+    private void handleShooting() {
+        if (canShoot && Greenfoot.isKeyDown("5")) {
+            fireProjectile();
+            canShoot = false; 
         }
     }
 
-    private boolean canShoot()
-    {
-        long currentTime = System.currentTimeMillis();
-        return (currentTime - lastShotTime) >= 1000;
+    private void fireProjectile() {
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        if (mouse != null) {
+            int mouseX = mouse.getX();
+            int mouseY = mouse.getY();
+            int playerX = getX();
+            int playerY = getY();
+
+            
+            int angle = (int) Math.toDegrees(Math.atan2(mouseY - playerY, mouseX - playerX));
+
+            
+            World world = getWorld();
+            AOE aoe = new AOE();
+            world.addObject(aoe, playerX, playerY);
+            aoe.setRotation(angle);
+        }
     }
+
+    private void manageCooldown() {
+        if (!canShoot) {
+            delayCounter++;
+            if (delayCounter >= cooldownTime) {
+                canShoot = true;
+                delayCounter = 0;
+            }
+        }
+    }
+    private boolean canTripleShot = true;
+    private int tripleShotCooldownTime = 120; // 2 second cooldown for Tripleshot
+    private int tripleShotCooldownCounter = 0;
+
+    public void doAction() {  
+        handleTripleShot();
+        manageTripleShotCooldown();
+    }
+
+    private void handleTripleShot() {
+        if (canTripleShot && Greenfoot.isKeyDown("3")) {
+            shootTripleShot();
+            canTripleShot = false; // Start cooldown for TripleShot
+        }
+    }
+
+    private void shootTripleShot() {
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        if (mouse != null) {
+            int mouseX = mouse.getX();
+            int mouseY = mouse.getY();
+            int playerX = getX();
+            int playerY = getY();
+
+            
+            int mainAngle = (int) Math.toDegrees(Math.atan2(mouseY - playerY, mouseX - playerX));
+
+            
+            World world = getWorld();
+            for (int i = -1; i <= 1; i++) {
+                TripleShotProjectile tripleShot = new TripleShotProjectile();
+                world.addObject(tripleShot, playerX, playerY);
+                tripleShot.setRotation(mainAngle + i * 15); 
+            }
+        }
+    }
+
+    private void manageTripleShotCooldown() {
+        if (!canTripleShot) {
+            tripleShotCooldownCounter++;
+            if (tripleShotCooldownCounter >= tripleShotCooldownTime) {
+                canTripleShot = true;
+                tripleShotCooldownCounter = 0;
+            }
+        }
+    }
+    
 }

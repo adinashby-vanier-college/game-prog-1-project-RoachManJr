@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=AOE
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ update()
+comment3.params=
+comment3.target=void\ handleMovement()
+comment4.params=
+comment4.target=void\ split()
+comment5.params=
+comment5.target=void\ markAsFinal()
+numComments=6
