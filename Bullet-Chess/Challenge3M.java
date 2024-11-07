@@ -6,13 +6,13 @@ import greenfoot.*;
 /**
  * 
  */
-public class Challenge1M extends World
+public class Challenge3M extends World
 {
 
     /**
-     * Constructor for objects of class Challenge1M.
+     * Constructor for objects of class Challenge3M.
      */
-    public Challenge1M()
+    public Challenge3M()
     {
         super(800, 800, 1);
         prepare();
@@ -61,13 +61,5 @@ public class Challenge1M extends World
         addObject(roofedWallWithBanner4, 181, 310);
         RoofedWallWithoutBanner roofedWallWithoutBanner8 =  new RoofedWallWithoutBanner();
         addObject(roofedWallWithoutBanner8, 301, 260);
-        Roof roof5 =  new Roof();
-        addObject(roof5, 153, 533);
-        Roof roof6 =  new Roof();
-        addObject(roof6, 216, 533);
-        Roof roof7 =  new Roof();
-        addObject(roof7, 583, 533);
-        Roof roof8 =  new Roof();
-        addObject(roof8, 647, 533);
     }
 }

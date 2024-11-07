@@ -24,7 +24,7 @@ public class BossLevel1 extends World
      */
     private void prepare()
     {
-        Boss_2_2 boss_2_2 =  new  Boss_2_2();
+        Boss_2_2 boss_2_2 =  new Boss_2_2();
         addObject(boss_2_2, 400, 290);
     }
 }

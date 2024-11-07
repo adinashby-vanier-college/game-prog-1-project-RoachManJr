@@ -52,5 +52,11 @@ public class Challenge2M extends World
         addObject(roof, 105, 381);
         Roof roof2 =  new Roof();
         addObject(roof2, 161, 381);
+        RoofedWallWithoutBanner roofedWallWithoutBanner4 =  new RoofedWallWithoutBanner();
+        addObject(roofedWallWithoutBanner4, 666, 478);
+        Roof roof3 =  new Roof();
+        addObject(roof3, 638, 381);
+        Roof roof4 =  new Roof();
+        addObject(roof4, 694, 381);
     }
 }
