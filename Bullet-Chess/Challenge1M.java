@@ -58,7 +58,7 @@ public class Challenge1M extends World
         RoofedWallWithBanner roofedWallWithBanner7 =  new RoofedWallWithBanner();
         addObject(roofedWallWithBanner7, 619, 630);
         RoofedWallWithBanner roofedWallWithBanner4 =  new RoofedWallWithBanner();
-        addObject(roofedWallWithBanner4, 181, 310);
+        addObject(roofedWallWithBanner4, 181, 308);
         RoofedWallWithoutBanner roofedWallWithoutBanner8 =  new RoofedWallWithoutBanner();
         addObject(roofedWallWithoutBanner8, 301, 260);
         Roof roof5 =  new Roof();

@@ -59,7 +59,7 @@
                 <variable type="RoofedWallWithBanner" type-java="RoofedWallWithBanner" name="roofedWallWithBanner7" value="new RoofedWallWithBanner()" value-java=" new RoofedWallWithBanner()" enable="true"/>
                 <call expression="addObject(roofedWallWithBanner7,619,630)" expression-java="addObject(roofedWallWithBanner7, 619, 630)" enable="true"/>
                 <variable type="RoofedWallWithBanner" type-java="RoofedWallWithBanner" name="roofedWallWithBanner4" value="new RoofedWallWithBanner()" value-java=" new RoofedWallWithBanner()" enable="true"/>
-                <call expression="addObject(roofedWallWithBanner4,181,310)" expression-java="addObject(roofedWallWithBanner4, 181, 310)" enable="true"/>
+                <call expression="addObject(roofedWallWithBanner4,181,308)" expression-java="addObject(roofedWallWithBanner4, 181, 308)" enable="true"/>
                 <variable type="RoofedWallWithoutBanner" type-java="RoofedWallWithoutBanner" name="roofedWallWithoutBanner8" value="new RoofedWallWithoutBanner()" value-java=" new RoofedWallWithoutBanner()" enable="true"/>
                 <call expression="addObject(roofedWallWithoutBanner8,301,260)" expression-java="addObject(roofedWallWithoutBanner8, 301, 260)" enable="true"/>
             </body>
