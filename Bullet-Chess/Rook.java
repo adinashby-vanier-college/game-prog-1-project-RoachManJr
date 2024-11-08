@@ -1,28 +1,33 @@
-import greenfoot.*;  // Importing the Greenfoot package
-
-public class Boss_2_2 extends Actor
+import greenfoot.*;
+public class Rook extends Actor
 {
     private int targetX, targetY;
     private int speed = 2;  // Rook moves slowly at this speed
-
-    
-    public Boss_2_2()
+    int shooting = 40;
+    int cooldownShooting = 0;
+    public Rook()
     {
         // Set initial target to the center of the world
-        targetX = 400;
-        targetY = 300;
+        targetX = 500;
+        targetY = 350;
     }
 
     public void act()
     {
         // Move towards the current target (horizontal edge or center)
         moveToTarget();
-
-        // If reached target, move to a random diagonal direction
+        // If reached target, move to a random diagonal direction and shoot
         if (atTarget())
         {
             moveToRandomHorizontal();
         }
+        if (cooldownShooting<= 0) {
+            shoot();
+            cooldownShooting= shooting;
+            }
+        if (cooldownShooting > 0) {
+                cooldownShooting--;
+            }
     }
 
     // Move the Rook towards the current target
@@ -69,16 +74,16 @@ public class Boss_2_2 extends Actor
                     targetY = 100;
                     break;
                 case 1:  // Top-right horizontal
-                    targetX = 700;
+                    targetX = 900;
                     targetY = 100;
                     break;
                 case 2:  // Bottom-left horizontal
                     targetX = 100;
-                    targetY = 500;
+                    targetY = 600;
                     break;
                 case 3:  // Bottom-right horizontal
-                    targetX = 500;
-                    targetY = 500;
+                    targetX = 900;
+                    targetY = 600;
                     break;
             }
         }
@@ -88,5 +93,21 @@ public class Boss_2_2 extends Actor
             targetX = getWorld().getWidth() / 2;
             targetY = getWorld().getHeight() / 2;
         }
+    }
+
+    // Shoot bullets in four directions (right, top, bottom, left)
+    private void shoot()
+    {
+        // Create bullets and add them to the world
+        RookBullet rightBullet = new RookBullet(0);
+        RookBullet topBullet = new RookBullet(1);
+        RookBullet bottomBullet = new RookBullet(2);
+        RookBullet leftBullet = new RookBullet(3);
+
+        // Add the bullets to the world at the Boss_2_2's current location
+        getWorld().addObject(rightBullet, getX(), getY());
+        getWorld().addObject(topBullet, getX(), getY());
+        getWorld().addObject(bottomBullet, getX(), getY());
+        getWorld().addObject(leftBullet, getX(), getY());
     }
 }

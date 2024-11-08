@@ -1,7 +1,7 @@
 #BlueJ class context
-comment0.target=Boss_2_2
+comment0.target=Rook
 comment1.params=
-comment1.target=Boss_2_2()
+comment1.target=Rook()
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
@@ -10,4 +10,6 @@ comment4.params=
 comment4.target=boolean\ atTarget()
 comment5.params=
 comment5.target=void\ moveToRandomHorizontal()
-numComments=6
+comment6.params=
+comment6.target=void\ shoot()
+numComments=7

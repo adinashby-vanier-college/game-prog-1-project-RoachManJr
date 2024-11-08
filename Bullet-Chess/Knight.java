@@ -4,9 +4,9 @@ import greenfoot.*;
 /**
  * 
  */
-public class Boss_1 extends Actor
+public class Knight extends Actor
 {
-    private BossProjectileHorse1 bossprojectilehorse1; 
+    private BulletHorse1 bulletHorse1; 
     private int x;
     private int y;
     private float radius = 75;    
@@ -30,8 +30,8 @@ public class Boss_1 extends Actor
         if (cooldownCounter1 > 0) {
                 cooldownCounter1--;
             }
-        if (bossprojectilehorse1 != null) {
-                bossprojectilehorse1.updateCenter(getX(), getY());
+        if (bulletHorse1 != null) {
+                bulletHorse1.updateCenter(getX(), getY());
             }
         }
     /**
@@ -43,11 +43,8 @@ public class Boss_1 extends Actor
     }   
     public void move1()
     {
-        if (bossprojectilehorse1 != null) {
-            bossprojectilehorse1.updateCenter(getX(), getY());
-        }
-        bossprojectilehorse1 = new BossProjectileHorse1(getX(), getY(), radius, speed);
-        getWorld().addObject(bossprojectilehorse1, getX(), getY());
+        bulletHorse1 = new BulletHorse1(getX(), getY(), radius, speed);
+        getWorld().addObject(bulletHorse1, getX(), getY());
     }
     public void move2()
     {

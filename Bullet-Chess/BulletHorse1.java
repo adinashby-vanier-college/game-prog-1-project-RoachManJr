@@ -5,7 +5,7 @@ import greenfoot.*;
 /**
  * 
  */
-public class BossProjectileHorse1 extends Actor
+public class BulletHorse1 extends Knight
 {
     private int centerX;  
     private int centerY;  
@@ -13,7 +13,7 @@ public class BossProjectileHorse1 extends Actor
     private float radius;  
     private float speed;   
     private int lifespan;
-    public BossProjectileHorse1(int centerX, int centerY, float radius, float speed) {
+    public BulletHorse1(int centerX, int centerY, float radius, float speed) {
         this.centerX = centerX;
         this.centerY = centerY;
         this.radius = radius;
@@ -40,4 +40,5 @@ public class BossProjectileHorse1 extends Actor
     
     }
 }
+
 

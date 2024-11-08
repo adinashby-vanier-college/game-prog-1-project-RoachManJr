@@ -1,4 +1,3 @@
-// WARNING: This file is auto-generated and any changes to it will be overwritten
 import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
@@ -14,7 +13,7 @@ public class BossLevel1 extends World
      */
     public BossLevel1()
     {
-        super(800, 600, 1);
+        super(1000, 700, 1);
         prepare();
     }
 
@@ -24,7 +23,9 @@ public class BossLevel1 extends World
      */
     private void prepare()
     {
-        Boss_2_2 boss_2_2 =  new Boss_2_2();
-        addObject(boss_2_2, 400, 290);
+        Rook rook =  new  Rook();
+        addObject(rook, 500, 100);
+        Bishop bishop = new Bishop();
+        addObject(bishop,500,300);
     }
 }

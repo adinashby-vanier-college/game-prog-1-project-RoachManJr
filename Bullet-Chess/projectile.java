@@ -5,7 +5,7 @@ import greenfoot.*;
 /**
  * 
  */
-public class projectile extends Actor
+public class projectile extends Player
 {
     private int dx;
     private int dy;

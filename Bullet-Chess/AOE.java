@@ -2,7 +2,7 @@ import lang.stride.*;
 import java.util.*;
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class AOE extends Actor {
+public class AOE extends Player {
     private int distanceTraveled = 0;
     private int splitDistance = 200; // Distance after which it splits (for the main projectile)
     private int maxTravelDistance = 200; // Maximum distance before the split projectiles disappear

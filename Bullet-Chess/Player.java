@@ -33,16 +33,16 @@ public class Player extends Actor {
 
     private void movePlayer() {
         if (Greenfoot.isKeyDown("w") && canMoveUp()) {
-            setLocation(getX(), getY() - 3); 
+            setLocation(getX(), getY() - 4); 
         }
         if (Greenfoot.isKeyDown("s") && canMoveDown()) {
-            setLocation(getX(), getY() + 3); 
+            setLocation(getX(), getY() + 4); 
         }
         if (Greenfoot.isKeyDown("a") && canMoveLeft()) {
-            setLocation(getX() - 3, getY()); 
+            setLocation(getX() - 4, getY()); 
         }
         if (Greenfoot.isKeyDown("d") && canMoveRight()) {
-            setLocation(getX() + 3, getY()); 
+            setLocation(getX() + 4, getY()); 
         }
     
     }
@@ -109,24 +109,46 @@ public class Player extends Actor {
         }
     }
     private void dashing() {
-        if (Greenfoot.isKeyDown("q")) {
-            if (Greenfoot.isKeyDown("w")) {
-                setLocation(getX(), getY() - 100); 
-            }
-            else if (Greenfoot.isKeyDown("s")) {
-                setLocation(getX(), getY() + 100); 
-            }
-            else if (Greenfoot.isKeyDown("a")) {
-                setLocation(getX() - 100, getY()); 
-            }
-            else if (Greenfoot.isKeyDown("d")) {
-                setLocation(getX() + 100, getY()); 
-            }
-            else {
-                setLocation(getX(), getY() - 100);
+        if (Greenfoot.isKeyDown("q")) { // Dash when 'q' is pressed
+        // Diagonal and straight movement based on key combinations
+        if (Greenfoot.isKeyDown("w") && Greenfoot.isKeyDown("a")) {
+            // Dash top-left
+            setLocation(getX() - 100, getY() - 100); 
+        }
+        else if (Greenfoot.isKeyDown("w") && Greenfoot.isKeyDown("d")) {
+            // Dash top-right
+            setLocation(getX() + 100, getY() - 100); 
+        }
+        else if (Greenfoot.isKeyDown("s") && Greenfoot.isKeyDown("a")) {
+            // Dash bottom-left
+            setLocation(getX() - 100, getY() + 100); 
+        }
+        else if (Greenfoot.isKeyDown("s") && Greenfoot.isKeyDown("d")) {
+            // Dash bottom-right
+            setLocation(getX() + 100, getY() + 100); 
+        }
+        else if (Greenfoot.isKeyDown("w")) {
+            // Dash up (forward)
+            setLocation(getX(), getY() - 100); 
+        }
+        else if (Greenfoot.isKeyDown("a")) {
+            // Dash left
+            setLocation(getX() - 100, getY()); 
+        }
+        else if (Greenfoot.isKeyDown("s")) {
+            // Dash down
+            setLocation(getX(), getY() + 100); 
+        }
+        else if (Greenfoot.isKeyDown("d")) {
+            // Dash right
+            setLocation(getX() + 100, getY()); 
+        }
+        else {
+            // If no directional key is pressed, dash forward (upward)
+            setLocation(getX(), getY() - 100); 
+                }
             }
         }
-    }
     
    
     private boolean canShoot = true; 

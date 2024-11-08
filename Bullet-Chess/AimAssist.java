@@ -2,7 +2,7 @@ import lang.stride.*;
 import java.util.*;
 import greenfoot.*;   // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class AimAssist extends Actor
+public class AimAssist extends Player
 {
     private int speed = 5;     // Speed of the aim-assisted projectile
     private int accuracy = 10; // Accuracy factor for aim assist (higher = more precise)
@@ -20,7 +20,7 @@ public class AimAssist extends Actor
     private void moveTowardsTarget()
     {
         // Find the first target actor
-        Actor target = (Actor) getWorld().getObjects(Boss_1.class).get(0);
+        Actor target = (Actor) getWorld().getObjects(Knight.class).get(0);
 
         if (target != null)
         {
