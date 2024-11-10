@@ -9,7 +9,7 @@
     <fields/>
     <constructors>
         <constructor access="public" enable="true">
-            <javadoc xml:space="preserve">Constructor for objects of class Challenge3M.</javadoc>
+            <javadoc xml:space="preserve">Constructor for objects of class Challenge1M.</javadoc>
             <params/>
             <throws/>
             <delegate target="super" params="800,800,1" params-java="800, 800, 1"/>
@@ -43,25 +43,23 @@
                 <variable type="Roof" type-java="Roof" name="roof2" value="new Roof()" value-java=" new Roof()" enable="true"/>
                 <call expression="addObject(roof2,153,213)" expression-java="addObject(roof2, 153, 213)" enable="true"/>
                 <variable type="RoofedWallWithBanner" type-java="RoofedWallWithBanner" name="roofedWallWithBanner5" value="new RoofedWallWithBanner()" value-java=" new RoofedWallWithBanner()" enable="true"/>
-                <call expression="addObject(roofedWallWithBanner5,499,260)" expression-java="addObject(roofedWallWithBanner5, 499, 260)" enable="true"/>
+                <call expression="addObject(roofedWallWithBanner5,527,260)" expression-java="addObject(roofedWallWithBanner5, 527, 260)" enable="true"/>
                 <variable type="RoofedWallWithoutBanner" type-java="RoofedWallWithoutBanner" name="roofedWallWithoutBanner3" value="new RoofedWallWithoutBanner()" value-java=" new RoofedWallWithoutBanner()" enable="true"/>
                 <call expression="addObject(roofedWallWithoutBanner3,619,308)" expression-java="addObject(roofedWallWithoutBanner3, 619, 308)" enable="true"/>
                 <variable type="Roof" type-java="Roof" name="roof3" value="new Roof()" value-java=" new Roof()" enable="true"/>
                 <call expression="addObject(roof3,591,213)" expression-java="addObject(roof3, 591, 213)" enable="true"/>
                 <variable type="Roof" type-java="Roof" name="roof4" value="new Roof()" value-java=" new Roof()" enable="true"/>
                 <call expression="addObject(roof4,647,213)" expression-java="addObject(roof4, 647, 213)" enable="true"/>
+                <variable type="RoofedWallWithoutBanner" type-java="RoofedWallWithoutBanner" name="roofedWallWithoutBanner8" value="new RoofedWallWithoutBanner()" value-java=" new RoofedWallWithoutBanner()" enable="true"/>
+                <call expression="addObject(roofedWallWithoutBanner8,273,260)" expression-java="addObject(roofedWallWithoutBanner8, 273, 260)" enable="true"/>
                 <variable type="RoofedWallWithBanner" type-java="RoofedWallWithBanner" name="roofedWallWithBanner6" value="new RoofedWallWithBanner()" value-java=" new RoofedWallWithBanner()" enable="true"/>
-                <call expression="addObject(roofedWallWithBanner6,181,630)" expression-java="addObject(roofedWallWithBanner6, 181, 630)" enable="true"/>
+                <call expression="addObject(roofedWallWithBanner6,400,630)" expression-java="addObject(roofedWallWithBanner6, 400, 630)" enable="true"/>
                 <variable type="RoofedWallWithoutBanner" type-java="RoofedWallWithoutBanner" name="roofedWallWithoutBanner4" value="new RoofedWallWithoutBanner()" value-java=" new RoofedWallWithoutBanner()" enable="true"/>
-                <call expression="addObject(roofedWallWithoutBanner4,301,630)" expression-java="addObject(roofedWallWithoutBanner4, 301, 630)" enable="true"/>
+                <call expression="addObject(roofedWallWithoutBanner4,280,630)" expression-java="addObject(roofedWallWithoutBanner4, 280, 630)" enable="true"/>
                 <variable type="RoofedWallWithoutBanner" type-java="RoofedWallWithoutBanner" name="roofedWallWithoutBanner5" value="new RoofedWallWithoutBanner()" value-java=" new RoofedWallWithoutBanner()" enable="true"/>
-                <call expression="addObject(roofedWallWithoutBanner5,499,630)" expression-java="addObject(roofedWallWithoutBanner5, 499, 630)" enable="true"/>
-                <variable type="RoofedWallWithBanner" type-java="RoofedWallWithBanner" name="roofedWallWithBanner7" value="new RoofedWallWithBanner()" value-java=" new RoofedWallWithBanner()" enable="true"/>
-                <call expression="addObject(roofedWallWithBanner7,619,630)" expression-java="addObject(roofedWallWithBanner7, 619, 630)" enable="true"/>
+                <call expression="addObject(roofedWallWithoutBanner5,520,630)" expression-java="addObject(roofedWallWithoutBanner5, 520, 630)" enable="true"/>
                 <variable type="RoofedWallWithBanner" type-java="RoofedWallWithBanner" name="roofedWallWithBanner4" value="new RoofedWallWithBanner()" value-java=" new RoofedWallWithBanner()" enable="true"/>
                 <call expression="addObject(roofedWallWithBanner4,181,308)" expression-java="addObject(roofedWallWithBanner4, 181, 308)" enable="true"/>
-                <variable type="RoofedWallWithoutBanner" type-java="RoofedWallWithoutBanner" name="roofedWallWithoutBanner8" value="new RoofedWallWithoutBanner()" value-java=" new RoofedWallWithoutBanner()" enable="true"/>
-                <call expression="addObject(roofedWallWithoutBanner8,301,260)" expression-java="addObject(roofedWallWithoutBanner8, 301, 260)" enable="true"/>
             </body>
         </method>
     </methods>

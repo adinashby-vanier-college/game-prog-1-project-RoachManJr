@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="Challenge2_P" extends="World" extends-java="World" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields/>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve">Constructor for objects of class Challenge2_P.</javadoc>
+            <params/>
+            <throws/>
+            <delegate target="super" params="500,500,1" params-java="500, 500, 1"/>
+            <body>
+                <call expression="prepare()" expression-java="prepare()" enable="true"/>
+            </body>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="private" type="void" type-java="void" name="prepare" enable="true">
+            <javadoc xml:space="preserve">Prepare the world for the start of the program.
+That is: create the initial objects and add them to the world.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <variable type="RooflessWallWithBanner" type-java="RooflessWallWithBanner" name="rooflessWallWithBanner" value="new RooflessWallWithBanner()" value-java=" new RooflessWallWithBanner()" enable="true"/>
+                <call expression="addObject(rooflessWallWithBanner,440,48)" expression-java="addObject(rooflessWallWithBanner, 440, 48)" enable="true"/>
+                <variable type="RooflessWallWithoutBanner" type-java="RooflessWallWithoutBanner" name="rooflessWallWithoutBanner" value="new RooflessWallWithoutBanner()" value-java=" new RooflessWallWithoutBanner()" enable="true"/>
+                <call expression="addObject(rooflessWallWithoutBanner,320,48)" expression-java="addObject(rooflessWallWithoutBanner, 320, 48)" enable="true"/>
+                <variable type="RooflessWallWithBanner" type-java="RooflessWallWithBanner" name="rooflessWallWithBanner2" value="new RooflessWallWithBanner()" value-java=" new RooflessWallWithBanner()" enable="true"/>
+                <call expression="addObject(rooflessWallWithBanner2,170,48)" expression-java="addObject(rooflessWallWithBanner2, 170, 48)" enable="true"/>
+                <variable type="RooflessWallWithoutBanner" type-java="RooflessWallWithoutBanner" name="rooflessWallWithoutBanner2" value="new RooflessWallWithoutBanner()" value-java=" new RooflessWallWithoutBanner()" enable="true"/>
+                <call expression="addObject(rooflessWallWithoutBanner2,50,48)" expression-java="addObject(rooflessWallWithoutBanner2, 50, 48)" enable="true"/>
+                <variable type="RooflessOpenedDoor" type-java="RooflessOpenedDoor" name="rooflessOpenedDoor" value="new RooflessOpenedDoor()" value-java=" new RooflessOpenedDoor()" enable="true"/>
+                <call expression="addObject(rooflessOpenedDoor,252,48)" expression-java="addObject(rooflessOpenedDoor, 252, 48)" enable="true"/>
+            </body>
+        </method>
+    </methods>
+</class>
