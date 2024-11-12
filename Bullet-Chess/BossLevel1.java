@@ -27,5 +27,7 @@ public class BossLevel1 extends World
         addObject(rook, 500, 100);
         Bishop bishop = new Bishop();
         addObject(bishop,500,300);
+        Player player = new Player();
+        addObject(player,501,638);
     }
 }

@@ -24,15 +24,15 @@ public class Challenge3_P extends World
      */
     private void prepare()
     {
-        RooflessWallWithBanner rooflessWallWithBanner =  new  RooflessWallWithBanner();
+        RooflessWallWithBanner rooflessWallWithBanner =  new RooflessWallWithBanner();
         addObject(rooflessWallWithBanner, 440, 48);
-        RooflessWallWithoutBanner rooflessWallWithoutBanner =  new  RooflessWallWithoutBanner();
+        RooflessWallWithoutBanner rooflessWallWithoutBanner =  new RooflessWallWithoutBanner();
         addObject(rooflessWallWithoutBanner, 320, 48);
-        RooflessWallWithBanner rooflessWallWithBanner2 =  new  RooflessWallWithBanner();
+        RooflessWallWithBanner rooflessWallWithBanner2 =  new RooflessWallWithBanner();
         addObject(rooflessWallWithBanner2, 170, 48);
-        RooflessWallWithoutBanner rooflessWallWithoutBanner2 =  new  RooflessWallWithoutBanner();
+        RooflessWallWithoutBanner rooflessWallWithoutBanner2 =  new RooflessWallWithoutBanner();
         addObject(rooflessWallWithoutBanner2, 50, 48);
-        RooflessOpenedDoor rooflessOpenedDoor =  new  RooflessOpenedDoor();
+        RooflessOpenedDoor rooflessOpenedDoor =  new RooflessOpenedDoor();
         addObject(rooflessOpenedDoor, 252, 48);
     }
 }
