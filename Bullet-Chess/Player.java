@@ -73,11 +73,8 @@ public class Player extends Actor {
         boolean canMoveUp = true;
         int imageWidth = getImage().getWidth();
         int imageHeight = getImage().getHeight();
-        if(getOneObjectAtOffset(imageWidth / -2, imageHeight / -2 - 4, RoofedOpenedDoor.class) != null ||
-           getOneObjectAtOffset(imageWidth / 2, imageHeight / -2 - 4, RoofedOpenedDoor.class) != null) {
-            
-        }
-        else if(getOneObjectAtOffset(imageWidth / -2, imageHeight / -2 - 4, Assets.class) != null ||
+
+        if(getOneObjectAtOffset(imageWidth / -2, imageHeight / -2 - 4, Assets.class) != null ||
            getOneObjectAtOffset(imageWidth / 2, imageHeight / -2 - 4, Assets.class) != null) {
             canMoveUp = false;
         }
