@@ -1,7 +1,7 @@
 import greenfoot.*;  // Import Greenfoot classes
 import java.util.Random;  // For random number generation
 
-public class Bishop extends Actor {
+public class Bishop extends NPCs {
     // The center of the world (400, 300) in an 800x600 world
     private int[] center = {500, 350}; 
 

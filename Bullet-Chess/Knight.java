@@ -4,7 +4,7 @@ import greenfoot.*;
 /**
  * 
  */
-public class Knight extends Actor
+public class Knight extends NPCs
 {
     private BulletHorse1 bulletHorse1; 
     private int x;

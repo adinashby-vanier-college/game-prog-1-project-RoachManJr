@@ -6,11 +6,11 @@ import greenfoot.*;
 /**
  * 
  */
-public class Boss_B extends NPCs
+public class NPCs extends Actor
 {
 
     /**
-     * Act - do whatever the Boss_B wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - do whatever the NPCs wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {

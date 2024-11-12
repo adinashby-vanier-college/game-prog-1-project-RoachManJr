@@ -6,7 +6,7 @@ import greenfoot.*;
 /**
  * 
  */
-public class Boss_3_2 extends Actor
+public class Boss_3_2 extends NPCs
 {
 
     /**

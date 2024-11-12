@@ -1,5 +1,5 @@
 import greenfoot.*;
-public class Rook extends Actor
+public class Rook extends NPCs
 {
     private int targetX, targetY;
     private int speed = 2;  // Rook moves slowly at this speed
