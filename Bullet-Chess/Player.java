@@ -51,8 +51,8 @@ public class Player extends Actor {
         boolean canMoveLeft = true;
         int imageWidth = getImage().getWidth();
         int imageHeight = getImage().getHeight();
-        if(getOneObjectAtOffset(imageWidth / -2 - 3, imageHeight / -2, Assets.class) != null ||
-           getOneObjectAtOffset(imageWidth / -2 - 3, imageHeight / 2 - 1, Assets.class) != null) {
+        if(getOneObjectAtOffset(imageWidth / -2 - 4, imageHeight / -2, Assets.class) != null ||
+           getOneObjectAtOffset(imageWidth / -2 - 4, imageHeight / 2 - 2, Assets.class) != null) {
            canMoveLeft = false;
         }
         return canMoveLeft;
@@ -62,8 +62,8 @@ public class Player extends Actor {
         boolean canMoveRight = true;
         int imageWidth = getImage().getWidth();
         int imageHeight = getImage().getHeight();
-        if(getOneObjectAtOffset(imageWidth / 2 + 3, imageHeight / -2, Assets.class) != null ||
-           getOneObjectAtOffset(imageWidth / 2 + 3, imageHeight / 2 - 1, Assets.class) != null) {
+        if(getOneObjectAtOffset(imageWidth / 2 + 4, imageHeight / -2, Assets.class) != null ||
+           getOneObjectAtOffset(imageWidth / 2 + 4, imageHeight / 2 - 2, Assets.class) != null) {
            canMoveRight = false;
         }
         return canMoveRight;
