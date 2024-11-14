@@ -13,7 +13,7 @@ public class Challenge1M extends World
      */
     public Challenge1M()
     {
-        super(940, 940, 1);
+        super(940, 920, 1);
         prepare();
     }
 
