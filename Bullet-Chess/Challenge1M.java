@@ -13,7 +13,7 @@ public class Challenge1M extends World
      */
     public Challenge1M()
     {
-        super(940, 940, 1);
+        super(940, 920, 1);
         prepare();
     }
 
@@ -76,9 +76,5 @@ public class Challenge1M extends World
         addObject(roof7, 653, 603);
         Roof roof8 =  new  Roof();
         addObject(roof8, 717, 603);
-    }
-    public void transitionToHubWorld(){
-        HubWorld hubWorld = new HubWorld();
-        Greenfoot.setWorld(hubWorld);
     }
 }

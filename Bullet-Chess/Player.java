@@ -316,9 +316,9 @@ public class Player extends Actor
         if (getWorld() instanceof BossLevel1) {
             ((BossLevel1)getWorld()).transitionToHubWorld();
         }
-        if (getWorld() instanceof Challenge1M) {
+        /*if (getWorld() instanceof Challenge1M) {
             ((Challenge1M)getWorld()).transitionToHubWorld();
-        }
+        }*/
     }
 
     /**
@@ -336,15 +336,16 @@ public class Player extends Actor
      */
     private void takeDamage(int damage)
     {
-        /*health = health - damage;
+        health = health - damage;
         if (health <= 0) {
             die();
-        }*/
-        Rook rook = new Rook();
-        if(this.isTouching(rook)){
-            	getWorld().removeObject(this);
         }
+        /*Rook rook = new Rook();
+        if(this.isTouching(rook)){
+                getWorld().removeObject(this);
+        }*/
     }
+    
         public void respawnAtCheckpoint()
     { // Get the checkpoint position from HubWorld, not Game
         int checkpointX = Checkpoint.getCheckpointX();
