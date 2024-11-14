@@ -56,6 +56,14 @@ public class HubWorld extends World
         removeObject(doorTrigger1);
         rooflessOpenedDoor2.setLocation(317,89);
         rooflessOpenedDoor2.setLocation(318,47);
+        Checkpoint checkpoint = new Checkpoint(0);
+        addObject(checkpoint,395,263);
+        checkpoint.setLocation(400,262);
+        checkpoint.setLocation(392,257);
+        DoorTrigger1Challenge doorTrigger1Challenge = new DoorTrigger1Challenge();
+        addObject(doorTrigger1Challenge,483,97);
+        doorTrigger1.setLocation(317,102);
+        checkpoint.setLocation(397,247);
     }
     
     public void setCheckpoint(Checkpoint checkpoint)
@@ -70,12 +78,23 @@ public class HubWorld extends World
     
      public void act() {
         // Check if the player has been removed and needs to be respawned
-        if (getObjects(Player.class).isEmpty()) {
-            respawnPlayer();
+        if (getObjects(Player.class).isEmpty()) 
+        {   if (currentCheckpoint != null) 
+            {
+            // Create a new player instance and add it at the checkpoint's location
+            player = new Player();
+            addObject(player, currentCheckpoint.getX(), currentCheckpoint.getY());
+            } 
+            else 
+            {
+            // If no checkpoint is set, respawn the player at the initial starting point
+            player = new Player();
+            addObject(player, 400, 100);
+            }
         }
     }
     
-    private void respawnPlayer() {
+    /*private void respawnPlayer() {
         if (currentCheckpoint != null) {
             // Create a new player instance and add it at the checkpoint's location
             player = new Player();
@@ -85,5 +104,5 @@ public class HubWorld extends World
             player = new Player();
             addObject(player, 400, 100);
         }
-    }
+    }*/
 }

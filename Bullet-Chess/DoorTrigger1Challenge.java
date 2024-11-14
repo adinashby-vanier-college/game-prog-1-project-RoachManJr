@@ -1,12 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 /**
- * Write a description of class DoorTrigger1 here.
+ * Write a description of class DoorTrigger1Challenge here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class DoorTrigger1 extends Actor
+public class DoorTrigger1Challenge extends Actor
 {
        private boolean playerInPortal = false;
     
@@ -30,7 +30,7 @@ public class DoorTrigger1 extends Actor
                 playerInPortal = true;
 
                 // Add the fade effect to the world
-                FadeTransitionBoss1 fade = new FadeTransitionBoss1();
+                FadeTransitionChallenge1 fade = new FadeTransitionChallenge1();
                 getWorld().addObject(fade, getWorld().getWidth() / 2, getWorld().getHeight() / 2);
                 
                 // Delay a moment before transitioning

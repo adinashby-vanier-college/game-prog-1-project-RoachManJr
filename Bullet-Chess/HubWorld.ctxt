@@ -13,6 +13,4 @@ comment4.params=
 comment4.target=Checkpoint\ getCurrentCheckpoint()
 comment5.params=
 comment5.target=void\ act()
-comment6.params=
-comment6.target=void\ respawnPlayer()
-numComments=7
+numComments=6

@@ -77,4 +77,8 @@ public class Challenge1M extends World
         Roof roof8 =  new  Roof();
         addObject(roof8, 717, 603);
     }
+    public void transitionToHubWorld(){
+        HubWorld hubWorld = new HubWorld();
+        Greenfoot.setWorld(hubWorld);
+    }
 }

@@ -30,4 +30,8 @@ public class BossLevel1 extends World
         Player player = new Player();
         addObject(player,501,638);
     }
+    public void transitionToHubWorld(){
+        HubWorld hubWorld = new HubWorld();
+        Greenfoot.setWorld(hubWorld);
+    }
 }
