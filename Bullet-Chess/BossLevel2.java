@@ -5,15 +5,15 @@ import greenfoot.*;
 /**
  * 
  */
-public class BossLevel1 extends World
+public class BossLevel2 extends World
 {
 
     /**
-     * Constructor for objects of class BossLevel1.
+     * Constructor for objects of class BossLevel2.
      */
-    public BossLevel1()
+    public BossLevel2()
     {
-        super(1000, 800, 1);
+        super(1000, 700, 1);
         prepare();
     }
 
@@ -23,8 +23,12 @@ public class BossLevel1 extends World
      */
     private void prepare()
     {
-        Knight knight =  new  Knight();
-        addObject(knight, 495, 382);
+        Rook rook =  new  Rook();
+        addObject(rook, 500, 100);
+        Bishop bishop = new Bishop();
+        addObject(bishop,500,300);
+        Player player = new Player();
+        addObject(player,501,638);
     }
     public void transitionToHubWorld(){
         HubWorld hubWorld = new HubWorld();
