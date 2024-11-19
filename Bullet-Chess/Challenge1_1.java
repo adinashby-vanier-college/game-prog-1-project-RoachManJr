@@ -27,8 +27,8 @@ public class Challenge1_1 extends World
         addObject(roofedWallWithBanner, 510, 70);
         RoofedWallWithoutBanner roofedWallWithoutBanner =  new  RoofedWallWithoutBanner();
         addObject(roofedWallWithoutBanner, 390, 70);
-        RoofedOpenedDoor roofedOpenedDoor =  new  RoofedOpenedDoor();
-        addObject(roofedOpenedDoor, 282, 70);
+        RoofedClosedDoor roofedClosedDoor =  new  RoofedClosedDoor();
+        addObject(roofedClosedDoor, 282, 70);
         RoofedWallWithBanner roofedWallWithBanner2 =  new  RoofedWallWithBanner();
         addObject(roofedWallWithBanner2, 175, 70);
         RoofedWallWithoutBanner roofedWallWithoutBanner2 =  new  RoofedWallWithoutBanner();

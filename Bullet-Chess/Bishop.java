@@ -7,10 +7,10 @@ public class Bishop extends NPCs {
 
     // The four corners of the world
     private int[][] corners = {
-        {0, 0},      // Top-left corner
-        {1000, 0},    // Top-right corner
-        {0, 700},    // Bottom-left corner
-        {1000, 700}   // Bottom-right corner
+        {100, 200},      // Top-left corner
+        {900, 200},    // Top-right corner
+        {100, 600},    // Bottom-left corner
+        {900, 600}   // Bottom-right corner
     };
 
     private int currentCornerIndex = 0;  // Index to keep track of which corner we are targeting

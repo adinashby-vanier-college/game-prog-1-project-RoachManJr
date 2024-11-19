@@ -24,7 +24,7 @@ public class GameOverScreen extends World
     public void showTextWithBigRedFont(String message, int x, int y)
     {
         GreenfootImage bg = getBackground();
-        Font font =  new Font(50);
+        Font font =  new  Font(50);
         bg.setFont(font);
         bg.setColor(Color.RED);
         bg.drawString(message, x, y);

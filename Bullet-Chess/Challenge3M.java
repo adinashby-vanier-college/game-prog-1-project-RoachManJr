@@ -29,7 +29,7 @@ public class Challenge3M extends World
         RoofedWallWithBanner roofedWallWithBanner2 =  new  RoofedWallWithBanner();
         addObject(roofedWallWithBanner2, 363, 70);
         RoofedClosedDoor roofedClosedDoor =  new  RoofedClosedDoor();
-        addObject(roofedClosedDoor, 470, 72);
+        addObject(roofedClosedDoor, 470, 70);
         RoofedWallWithBanner roofedWallWithBanner3 =  new  RoofedWallWithBanner();
         addObject(roofedWallWithBanner3, 578, 70);
         RoofedWallWithoutBanner roofedWallWithoutBanner2 =  new  RoofedWallWithoutBanner();

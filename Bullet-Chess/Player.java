@@ -147,7 +147,8 @@ public class Player extends Actor
      * 
      */
     private void dashing()
-    {
+    {   World world = getWorld();
+        Assets contact = (Assets)getOneIntersectingObject(Assets.class);
         if (Greenfoot.isKeyDown("q")) {
             /* Dash when 'q' is pressed Diagonal and straight movement based on key combinations*/
             if (Greenfoot.isKeyDown("w") && Greenfoot.isKeyDown("a")) {
@@ -168,7 +169,7 @@ public class Player extends Actor
             }
             else if (Greenfoot.isKeyDown("w")) {
                 /* Dash up (forward)*/
-                setLocation(getX(), getY() - 100);
+                    setLocation(getX(), getY() - 100);
             }
             else if (Greenfoot.isKeyDown("a")) {
                 /* Dash left*/

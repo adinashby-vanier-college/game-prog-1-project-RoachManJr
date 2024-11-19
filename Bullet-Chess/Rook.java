@@ -71,11 +71,11 @@ public class Rook extends NPCs
             {
                 case 0:  // Top-left horizontal
                     targetX = 100;
-                    targetY = 100;
+                    targetY = 200;
                     break;
                 case 1:  // Top-right horizontal
                     targetX = 900;
-                    targetY = 100;
+                    targetY = 200;
                     break;
                 case 2:  // Bottom-left horizontal
                     targetX = 100;

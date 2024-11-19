@@ -9,7 +9,7 @@ public class projectile extends Player
 {
     private int dx;
     private int dy;
-    private double speed = 5.0;
+    private double speed = 10.0;
 
     /**
      * 

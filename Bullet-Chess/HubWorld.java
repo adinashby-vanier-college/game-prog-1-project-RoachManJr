@@ -56,7 +56,7 @@ public class HubWorld extends World
         RoofFloor roofFloor = new RoofFloor();
         addObject(roofFloor,254,778);
         RoofFloor roofFloor2 = new RoofFloor();
-        addObject(roofFloor2,556,778);
+        addObject(roofFloor2,547,778);
     }
     
     public void setCheckpoint(Checkpoint checkpoint)
