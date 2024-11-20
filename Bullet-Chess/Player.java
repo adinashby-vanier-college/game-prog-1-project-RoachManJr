@@ -104,7 +104,9 @@ public class Player extends Actor
         boolean canMoveUp = true;
         int imageWidth = getImage().getWidth();
         int imageHeight = getImage().getHeight();
-        if (getOneObjectAtOffset(imageWidth / -2, imageHeight / -2 - 4, Assets.class) != null || getOneObjectAtOffset(imageWidth / 2, imageHeight / -2 - 4, Assets.class) != null) {
+        if (getOneIntersectingObject(SafeEntrance.class) != null) {
+            
+        } else if (getOneObjectAtOffset(imageWidth / -2, imageHeight / -2 - 4, Assets.class) != null || getOneObjectAtOffset(imageWidth / 2, imageHeight / -2 - 4, Assets.class) != null) {
             canMoveUp = false;
         }
         return canMoveUp;
@@ -148,7 +150,6 @@ public class Player extends Actor
      */
     private void dashing()
     {   World world = getWorld();
-        Assets contact = (Assets)getOneIntersectingObject(Assets.class);
         if (Greenfoot.isKeyDown("q")) {
             /* Dash when 'q' is pressed Diagonal and straight movement based on key combinations*/
             if (Greenfoot.isKeyDown("w") && Greenfoot.isKeyDown("a")) {

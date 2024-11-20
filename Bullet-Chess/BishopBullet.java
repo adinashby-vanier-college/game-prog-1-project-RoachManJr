@@ -12,9 +12,9 @@ public class BishopBullet extends Bishop {
     public void act() {
         move(dx, dy);  // Move the bullet in the specified direction
 
-        // Check if the bullet is at the edge of the world
-        if (isAtEdge()) {
-            getWorld().removeObject(this);  // Remove the bullet from the world
+        Assets assets = (Assets) getOneIntersectingObject(Assets.class); // Check if the bullet is at the walls
+        if (assets != null) {
+            getWorld().removeObject(this);
         }
     }
 

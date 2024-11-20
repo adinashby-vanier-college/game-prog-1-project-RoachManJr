@@ -40,7 +40,7 @@ public class projectile extends Player
     {
         setLocation(getX() + dx, getY() + dy);
         Assets assets = (Assets) getOneIntersectingObject(Assets.class);
-        if (isAtEdge() || assets != null) {
+        if (assets != null) {
             getWorld().removeObject(this);
         }
     }

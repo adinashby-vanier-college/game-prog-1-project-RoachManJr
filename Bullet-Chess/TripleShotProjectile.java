@@ -10,9 +10,10 @@ public class TripleShotProjectile extends Player {
     public void act() {
         move(speed); // Move the projectile in the current direction
         distanceTraveled += speed; // Increase the traveled distance
-
+        
+        Assets assets = (Assets) getOneIntersectingObject(Assets.class); // checks if it hits a wall
         // If the projectile has traveled more than the max distance, remove it
-        if (distanceTraveled >= maxDistance) {
+        if (distanceTraveled >= maxDistance || assets != null) {
             getWorld().removeObject(this);
         }
     }

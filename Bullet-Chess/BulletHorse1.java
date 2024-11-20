@@ -29,7 +29,7 @@ public class BulletHorse1 extends Knight
         setLocation(bulletX, bulletY);
     
         lifespan--;
-        if (lifespan <= 0) {
+        if (lifespan <= 0 || isAtEdge()) {
             getWorld().removeObject(this);
         }
     }

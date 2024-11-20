@@ -26,8 +26,8 @@ public class RookBullet extends Rook
             move(-speed);      // Left
         }
 
-        // Remove bullet if it goes off screen
-        if (isAtEdge()) {
+        Assets assets = (Assets) getOneIntersectingObject(Assets.class); // Remove bullet if it goes at the walls on the side
+        if (assets != null) {
             getWorld().removeObject(this);
         }
     }

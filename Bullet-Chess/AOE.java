@@ -22,12 +22,13 @@ public class AOE extends Player {
 
     private void handleMovement() {
         move(speed);  // Move the projectile
-
+        
+        Assets assets = (Assets) getOneIntersectingObject(Assets.class); // check for walls
         if (!hasSplit) {
             distanceTraveled += speed;
 
             // Check if the original AOE projectile should split
-            if (distanceTraveled >= splitDistance) {
+            if (distanceTraveled >= splitDistance || assets != null) {
                 split();  // Split the projectile into 5 new ones
                 getWorld().removeObject(this); // Remove the original AOE projectile after splitting
             }
@@ -35,7 +36,7 @@ public class AOE extends Player {
             distanceBeforeDisappearing += speed;
 
             // If the split projectile travels the defined distance, remove it
-            if (distanceBeforeDisappearing >= maxTravelDistance) {
+            if (distanceBeforeDisappearing >= maxTravelDistance || assets != null) {
                 getWorld().removeObject(this);
             }
         }
