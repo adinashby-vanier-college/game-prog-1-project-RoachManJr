@@ -1,16 +1,13 @@
 #BlueJ class context
 comment0.target=Knight
-comment0.text=\r\n\ \r\n
+comment0.text=\r\n\ Knight\ class\ that\ moves\ and\ shoots\ bullets\ at\ the\ Player.\r\n
 comment1.params=
 comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Boss_1\ wants\ to\ do.\ This\ method\ is\ called\ whenever\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Knight\ wants\ to\ do.\r\n
 comment2.params=
-comment2.target=void\ moveKnight()
-comment2.text=\r\n\ \r\n
+comment2.target=void\ move1()
+comment2.text=\r\n\ First\ move\:\ Move\ in\ a\ certain\ direction\ and\ spawn\ a\ bullet.\r\n
 comment3.params=
-comment3.target=void\ move1()
-comment4.params=
-comment4.target=void\ move2()
-comment5.params=
-comment5.target=void\ move3()
-numComments=6
+comment3.target=void\ move2()
+comment3.text=\r\n\ Second\ move\:\ Shoot\ bullets\ at\ the\ Player.\r\n
+numComments=4

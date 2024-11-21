@@ -1,9 +1,9 @@
-import greenfoot.*;  // Importing the Greenfoot package
+import greenfoot.*;  
 
 public class RookBullet extends Rook
 {
     private int speed = 4;
-    private int direction;  // Direction of the bullet
+    private int direction; 
 
     public RookBullet(int direction) {
         this.direction = direction;
@@ -26,7 +26,7 @@ public class RookBullet extends Rook
             move(-speed);      // Left
         }
 
-        Assets assets = (Assets) getOneIntersectingObject(Assets.class); // Remove bullet if it goes at the walls on the side
+        Assets assets = (Assets) getOneIntersectingObject(Assets.class); 
         if (assets != null) {
             getWorld().removeObject(this);
         }
