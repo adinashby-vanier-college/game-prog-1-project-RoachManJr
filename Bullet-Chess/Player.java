@@ -307,20 +307,7 @@ public class Player extends Actor
      */
     private void die()
     {
-        /* Reset the player's position to the last checkpoint*/
-        int checkpointX = Checkpoint.getCheckpointX();
-        int checkpointY = Checkpoint.getCheckpointY();
-        /* If a checkpoint exists, respawn there*/
-        if (checkpointX != -1 && checkpointY != -1) {
-            setLocation(checkpointX, checkpointY);
-            health = 100;
-        }
-        if (getWorld() instanceof BossLevel1) {
-            ((BossLevel1)getWorld()).transitionToHubWorld();
-        }
-        /*if (getWorld() instanceof Challenge1M) {
-            ((Challenge1M)getWorld()).transitionToHubWorld();
-        }*/
+        
     }
 
     /**
@@ -346,18 +333,5 @@ public class Player extends Actor
         if(this.isTouching(rook)){
                 getWorld().removeObject(this);
         }*/
-    }
-    
-        public void respawnAtCheckpoint()
-    { // Get the checkpoint position from HubWorld, not Game
-        int checkpointX = Checkpoint.getCheckpointX();
-        int checkpointY = Checkpoint.getCheckpointY();
-
-        if (checkpointX != -1 && checkpointY != -1) {
-            setLocation(checkpointX, checkpointY);
-        } else {
-            // If no checkpoint exists, respawn at the starting position or a default location
-            setLocation(getWorld().getWidth() / 2, getWorld().getHeight() / 2);
-        }
     }
 }
