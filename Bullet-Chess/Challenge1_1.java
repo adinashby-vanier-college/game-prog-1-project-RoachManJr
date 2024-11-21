@@ -41,5 +41,9 @@ public class Challenge1_1 extends World
         addObject(roofWall,26,362);
         RoofWall roofWall1 = new RoofWall();
         addObject(roofWall1,544,362);
+        SafeEntrance safeEntrance = new SafeEntrance(50, 50);
+        addObject(safeEntrance,284,535);
+        Player player = new Player();
+        addObject(player,285,530);
     }
 }

@@ -53,6 +53,8 @@ public class BossLevel1 extends World
         addObject(roofWall2,969,348);
         RoofFloor roofFloor2 = new RoofFloor();
         addObject(roofFloor2,746,778);
+        SafeEntrance safeEntrance = new SafeEntrance(150, 50);
+        addObject(safeEntrance,500,782);
     }
 
     public void transitionToHubWorld(){
