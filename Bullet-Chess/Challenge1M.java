@@ -76,5 +76,9 @@ public class Challenge1M extends World
         addObject(roof7, 653, 603);
         Roof roof8 =  new  Roof();
         addObject(roof8, 717, 603);
+        SafeEntrance safeEntrance = new SafeEntrance(75, 50);
+        addObject(safeEntrance,470,905);
+        Player player = new Player();
+        addObject(player,470,900);
     }
 }

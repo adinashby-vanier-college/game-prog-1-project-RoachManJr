@@ -29,9 +29,11 @@ public class BulletHorse2 extends Knight
 
         // Move the bullet
         setLocation(getX() + dx, getY() + dy);
+        
+        Assets assets = (Assets) getOneIntersectingObject(Assets.class); 
 
         // If the bullet is outside the world, remove it
-        if (isAtEdge()) {
+        if (assets != null) {
             getWorld().removeObject(this);
         }
     }

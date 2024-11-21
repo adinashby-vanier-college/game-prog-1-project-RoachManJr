@@ -52,7 +52,7 @@ public class BossLevel3 extends World
         addObject(roofFloor,252,780);
         RoofFloor roofFloor2 = new RoofFloor();
         addObject(roofFloor2,746,780);
-        SafeEntrance safeEntrance = new SafeEntrance(100, 50);
+        SafeEntrance safeEntrance = new SafeEntrance(150, 50);
         addObject(safeEntrance,498,784);
         Player player = new Player();
         addObject(player,500,780);

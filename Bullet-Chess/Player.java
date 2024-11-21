@@ -170,7 +170,7 @@ public class Player extends Actor
             }
             else if (Greenfoot.isKeyDown("w")) {
                 /* Dash up (forward)*/
-                    setLocation(getX(), getY() - 100);
+                setLocation(getX(), getY() - 100);
             }
             else if (Greenfoot.isKeyDown("a")) {
                 /* Dash left*/

@@ -36,7 +36,6 @@ public class Challenge3M extends World
         addObject(roofedWallWithoutBanner2, 698, 70);
         RoofedWallWithBanner roofedWallWithBanner4 =  new  RoofedWallWithBanner();
         addObject(roofedWallWithBanner4, 818, 70);
-        
         Roof roof =  new Roof();
         addObject(roof, 287, 283);
         Roof roof2 =  new Roof();
@@ -59,7 +58,6 @@ public class Challenge3M extends World
         addObject(roofedWallWithoutBanner5, 590, 700);
         RoofedWallWithBanner roofedWallWithBanner40 =  new RoofedWallWithBanner();
         addObject(roofedWallWithBanner40, 251, 378);
-        
         RoofWall roofWall9 =  new  RoofWall();
         addObject(roofWall9, 909, 461);
         RoofWall roofWall10 =  new  RoofWall();
@@ -68,5 +66,9 @@ public class Challenge3M extends World
         addObject(roofFloor1, 255, 901);
         RoofFloor roofFloor2 =  new  RoofFloor();
         addObject(roofFloor2, 686, 901);
+        SafeEntrance safeEntrance = new SafeEntrance(75, 50);
+        addObject(safeEntrance,470,905);
+        Player player = new Player();
+        addObject(player,470,902);
     }
 }
