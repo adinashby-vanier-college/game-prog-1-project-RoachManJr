@@ -45,5 +45,7 @@ public class Challenge1_1 extends World
         addObject(safeEntrance,284,535);
         Player player = new Player();
         addObject(player,285,530);
+        ShieldWall shieldWall = new ShieldWall();
+        addObject(shieldWall,284,403);
     }
 }

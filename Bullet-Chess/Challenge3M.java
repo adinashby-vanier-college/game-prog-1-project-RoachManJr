@@ -13,7 +13,7 @@ public class Challenge3M extends World
      */
     public Challenge3M()
     {
-        super(940, 940, 1);
+        super(940, 920, 1);
         prepare();
     }
 
@@ -70,5 +70,9 @@ public class Challenge3M extends World
         addObject(safeEntrance,470,905);
         Player player = new Player();
         addObject(player,470,902);
+        MiniRook miniRook = new MiniRook();
+        addObject(miniRook,125,200);
+        MiniRook miniRook2 = new MiniRook();
+        addObject(miniRook2,815,830);
     }
 }
