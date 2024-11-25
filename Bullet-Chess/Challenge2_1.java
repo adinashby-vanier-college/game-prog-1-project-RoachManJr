@@ -52,7 +52,7 @@ public class Challenge2_1 extends World
         addObject(roofedWallWithoutBanner3,453,642);
         RoofedWallWithoutBanner roofedWallWithoutBanner4 = new RoofedWallWithoutBanner();
         addObject(roofedWallWithoutBanner4,237,642);
-        MiniRook miniRook = new MiniRook();
+        MiniRook_2_1_Bottom miniRook = new MiniRook_2_1_Bottom();
         addObject(miniRook,78,547);
         RoofedWallWithoutBanner roofedWallWithoutBanner5 = new RoofedWallWithoutBanner();
         addObject(roofedWallWithoutBanner5,117,452);
@@ -61,7 +61,7 @@ public class Challenge2_1 extends World
         RoofedWallWithBanner roofedWallWithBanner4 = new RoofedWallWithBanner();
         addObject(roofedWallWithBanner4,333,452);
         
-        MiniRook miniRook2 = new MiniRook();
+        MiniRook_2_1_Middle miniRook2 = new MiniRook_2_1_Middle();
         addObject(miniRook2,492,357);
         RoofedWallWithoutBanner roofedWallWithoutBanner7 = new RoofedWallWithoutBanner();
         addObject(roofedWallWithoutBanner7,117,261);
@@ -69,7 +69,7 @@ public class Challenge2_1 extends World
         addObject(roofedWallWithBanner5,237,261);
         RoofedWallWithoutBanner roofedWallWithoutBanner8 = new RoofedWallWithoutBanner();
         addObject(roofedWallWithoutBanner8,357,261);
-        MiniRook miniRook3 = new MiniRook();
+        MiniRook_2_1_Top miniRook3 = new MiniRook_2_1_Top();
         addObject(miniRook3,78,165);
     }
 }

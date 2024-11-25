@@ -70,9 +70,9 @@ public class Challenge3M extends World
         addObject(safeEntrance,470,905);
         Player player = new Player();
         addObject(player,470,902);
-        MiniRook miniRook = new MiniRook();
+        Player miniRook = new Player();
         addObject(miniRook,125,200);
-        MiniRook miniRook2 = new MiniRook();
+        Player miniRook2 = new Player();
         addObject(miniRook2,815,830);
     }
 }

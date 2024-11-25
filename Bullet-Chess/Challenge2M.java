@@ -69,13 +69,13 @@ public class Challenge2M extends World
         addObject(safeEntrance,470,905);
         Player player = new Player();
         addObject(player,470,902);
-        MiniRook miniRook = new MiniRook();
-        addObject(miniRook,100,191);
-        MiniRook miniRook2 = new MiniRook();
-        addObject(miniRook2,100,840);
-        MiniRook miniRook3 = new MiniRook();
-        addObject(miniRook3,835,840);
-        MiniRook miniRook4 = new MiniRook();
-        addObject(miniRook4,835,191);
+        MiniRook_2M_UL miniRook = new MiniRook_2M_UL();
+        addObject(miniRook,102,190);
+        Player bishop = new Player();
+        addObject(bishop,100,840);
+        MiniRook_2M_LR miniRook2 = new MiniRook_2M_LR();
+        addObject(miniRook2,830,840);
+        Player bishop2 = new Player();
+        addObject(bishop2,835,191);
     }
 }

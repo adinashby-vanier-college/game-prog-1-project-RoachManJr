@@ -1,15 +1,15 @@
 import greenfoot.*;
-public class MiniRook extends Rook
+public class MiniRook_2M_LR extends Rook
 {
     private int targetX, targetY;
     private int speed = 2;  
     int shooting = 40;
     int cooldownShooting = -10;
-    public MiniRook()
+    public MiniRook_2M_LR()
     {
         
-        targetX = 500;
-        targetY = 350;
+        targetX = 830;
+        targetY = 840;
     }
 
     public void act()
@@ -21,11 +21,11 @@ public class MiniRook extends Rook
         {
             moveToRandomHorizontal();
         }
-        if (cooldownShooting<= -10) {
+        if (cooldownShooting<= 0) {
             shoot();
             cooldownShooting= shooting;
             }
-        if (cooldownShooting > -10) {
+        if (cooldownShooting > 0) {
                 cooldownShooting--;
             }
     }
@@ -67,20 +67,20 @@ public class MiniRook extends Rook
             switch (direction)
             {
                 case 0:  // Top-left horizontal
-                    targetX = 100;
-                    targetY = 200;
+                    targetX = 102;
+                    targetY = 190;
                     break;
                 case 1:  // Top-right horizontal
-                    targetX = 900;
-                    targetY = 200;
+                    targetX = 830;
+                    targetY = 190;
                     break;
                 case 2:  // Bottom-left horizontal
-                    targetX = 100;
-                    targetY = 600;
+                    targetX = 102;
+                    targetY = 840;
                     break;
                 case 3:  // Bottom-right horizontal
-                    targetX = 900;
-                    targetY = 600;
+                    targetX = 830;
+                    targetY = 840;
                     break;
             }
         }
