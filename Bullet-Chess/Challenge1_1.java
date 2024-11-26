@@ -27,8 +27,8 @@ public class Challenge1_1 extends World
         addObject(roofedWallWithBanner, 510, 70);
         RoofedWallWithoutBanner roofedWallWithoutBanner =  new  RoofedWallWithoutBanner();
         addObject(roofedWallWithoutBanner, 390, 70);
-        RoofedClosedDoor roofedClosedDoor =  new  RoofedClosedDoor();
-        addObject(roofedClosedDoor, 282, 70);
+        RoofedOpenedDoor roofedOpenedDoor =  new  RoofedOpenedDoor();
+        addObject(roofedOpenedDoor, 282, 70);
         RoofedWallWithBanner roofedWallWithBanner2 =  new  RoofedWallWithBanner();
         addObject(roofedWallWithBanner2, 175, 70);
         RoofedWallWithoutBanner roofedWallWithoutBanner2 =  new  RoofedWallWithoutBanner();
@@ -46,6 +46,12 @@ public class Challenge1_1 extends World
         Player player = new Player();
         addObject(player,285,530);
         MiniShieldKnight shieldWall = new MiniShieldKnight();
-        addObject(shieldWall,284,403);
+        addObject(shieldWall,142,403);
+        MiniShieldKnight miniShieldKnight2 = new MiniShieldKnight();
+        addObject(miniShieldKnight2,428,403);
+        MiniShieldKnight miniShieldKnight3 = new MiniShieldKnight();
+        addObject(miniShieldKnight3,142,250);
+        MiniShieldKnight miniShieldKnight4 = new MiniShieldKnight();
+        addObject(miniShieldKnight4,428,250);
     }
 }
