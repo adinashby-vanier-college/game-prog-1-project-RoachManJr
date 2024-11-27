@@ -1,4 +1,3 @@
-// WARNING: This file is auto-generated and any changes to it will be overwritten
 import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
@@ -15,18 +14,21 @@ public class SystemOfDoors extends World
     public SystemOfDoors()
     {
         super(800, 800, 1);
-        showTextWithBigWhiteFont("You win", 180, 200);
+        showTextWithBigBlackFont("The boss is on the left door.", 100, 200);
+        showTextWithBigBlackFont("The extra challenge is on the right.", 20, 350);
+        showTextWithBigBlackFont("You can't go back.", 200, 700);
     }
 
     /**
      * 
      */
-    public void showTextWithBigWhiteFont(String message, int x, int y)
+    public void showTextWithBigBlackFont(String message, int x, int y)
     {
         GreenfootImage bg = getBackground();
-        Font font =  new Font(50);
+        Font font =  new  Font(50);
         bg.setFont(font);
-        bg.setColor(Color.WHITE);
+        bg.setColor(Color.BLACK);
         bg.drawString(message, x, y);
     }
 }
+

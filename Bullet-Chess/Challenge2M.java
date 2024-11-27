@@ -71,11 +71,11 @@ public class Challenge2M extends World
         addObject(player,470,902);
         MiniRook_2M_UL miniRook = new MiniRook_2M_UL();
         addObject(miniRook,102,190);
-        Player bishop = new Player();
-        addObject(bishop,100,840);
+        MiniBishop bishop = new MiniBishop();
+        addObject(bishop,472, 407);
         MiniRook_2M_LR miniRook2 = new MiniRook_2M_LR();
         addObject(miniRook2,830,840);
-        Player bishop2 = new Player();
-        addObject(bishop2,835,191);
+        MiniBishop bishop2 = new MiniBishop();
+        addObject(bishop2,472, 636);
     }
 }
