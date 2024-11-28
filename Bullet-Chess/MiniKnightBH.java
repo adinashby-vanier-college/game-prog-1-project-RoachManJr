@@ -18,6 +18,7 @@ public class MiniKnightBH extends Knight
     int moveDelay = 50;
     int cooldownCounter = 0;
 
+    int cooldownCounter2 = 0;
     
     private Player player;
 
@@ -26,33 +27,17 @@ public class MiniKnightBH extends Knight
      */
     public void act()
     {
-        if (cooldownCounter1 > 0) {
-            cooldownCounter1--;
-        }
-        if (cooldownCounter <= 0) {
-            move2();
-            cooldownCounter = moveDelay;
-        }
-        if (cooldownCounter > 0) {
-            cooldownCounter--;
-        }
+        move3();
     }
 
-    /**
-     * Second move: Shoot bullets at the Player.
-     */
-    public void move2()
-    {
-        player = (Player) getWorld().getObjects(Player.class).get(0); 
-        if (player != null) {
-            
-            int playerX = player.getX();
-            int playerY = player.getY();
-            
-            double angle = Math.atan2(playerY - getY(), playerX - getX());
-
-            BulletHorse2 bulletHorse2 = new BulletHorse2(getX(), getY(), angle, speed); 
-            getWorld().addObject(bulletHorse2, getX(), getY()); 
+        public void move3() {
+        cooldownCounter2++;
+            if (cooldownCounter2 == 10) {
+            cooldownCounter2 = 0;
+            BulletHorse3 bullet = new BulletHorse3(); 
+            int randomDirection = Greenfoot.getRandomNumber(360); 
+            bullet.setRotation(randomDirection); 
+            getWorld().addObject(bullet, getX(), getY());
         }
     }
 }

@@ -76,5 +76,9 @@ public class Challenge3M extends World
         addObject(miniRook2,830,840);
         MiniKnightBH miniKnightBH = new MiniKnightBH();
         addObject(miniKnightBH,471,511);
+        MiniKnightF miniKnightF = new MiniKnightF();
+        addObject(miniKnightF,181,693);
+        MiniKnightF miniKnightF2 = new MiniKnightF();
+        addObject(miniKnightF2,761,693);
     }
 }
