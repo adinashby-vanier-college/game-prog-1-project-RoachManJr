@@ -77,6 +77,7 @@ public class Knight extends NPCs
             BulletHorse2 bulletHorse2 = new BulletHorse2(getX(), getY(), angle, speed); 
             getWorld().addObject(bulletHorse2, getX(), getY()); 
         }
+        else{}
     }
         public void move3() {
         cooldownCounter2++;
