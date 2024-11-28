@@ -24,8 +24,8 @@ public class BossLevel3 extends World
     private void prepare()
     {
         Queen queen = new Queen();
-        addObject(queen,504,362);
-        queen.setLocation(490,347);
+        addObject(queen,500,350);
+        queen.setLocation(500,350);
         RoofedClosedDoor roofedClosedDoor = new RoofedClosedDoor();
         addObject(roofedClosedDoor,500,58);
         RoofedWallWithBanner roofedWallWithBanner = new RoofedWallWithBanner();

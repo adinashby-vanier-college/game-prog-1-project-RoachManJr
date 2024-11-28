@@ -17,6 +17,29 @@ public class Queen extends NPCs
     private float radius = 75;    
     private float speed = 8; 
     private Player player;
+    private int x;
+    private int y;
+    
+    
+    private int[] center = {500, 400}; 
+
+    
+    private int[][] corners = {
+        {100, 200}, // top left
+        {500,200}, //top
+        {900, 200}, //top right 
+        {900,400}, //right
+        {100, 600}, //bottom left 
+        {500,600}, //bottom
+        {900, 600},  //bottom right
+        {100, 400} // left
+        
+    };
+
+    private int currentCornerIndex = 0;  
+    private boolean isMoving = false;    
+    private int[] targetPosition;        
+    private int moveSpeed = 3; 
     /**
      * Act - do whatever the Boss_3_1 wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
      */
@@ -26,6 +49,55 @@ public class Queen extends NPCs
         shoot2();
         shoot3();
         shoot4();
+        if (bulletHorse1 != null) {
+            bulletHorse1.updateCenter(getX(), getY());
+        }
+        
+        if (getWorld() == null) return;  
+        if (!isMoving) {
+            if (targetPosition == null || targetPosition == center) {
+                moveToNextCorner();  
+            } else {
+                moveToCenter(); 
+            }
+        }
+        if (isMoving) {
+            moveTowardsTarget();
+        }
+        if (reachedTarget()) {
+            isMoving = false; 
+
+            
+            if (targetPosition == center) {
+                currentCornerIndex = (currentCornerIndex + 1) % corners.length;  
+            }
+        }
+    }
+    private void moveToNextCorner() {
+        targetPosition = corners[currentCornerIndex]; 
+        isMoving = true;  
+    }
+    private void moveToCenter() {
+        targetPosition = center;  
+        isMoving = true;  
+    }
+    private void moveTowardsTarget() {
+        int x = getX();
+        int y = getY();
+        int targetX = targetPosition[0];
+        int targetY = targetPosition[1];
+
+        
+        double angle = Math.atan2(targetY - y, targetX - x);  
+        double moveX = Math.cos(angle) * moveSpeed;  
+        double moveY = Math.sin(angle) * moveSpeed;  
+
+        
+        setLocation(x + (int) moveX, y + (int) moveY);
+    }
+    private boolean reachedTarget() {
+        
+        return Math.abs(getX() - targetPosition[0]) <= moveSpeed && Math.abs(getY() - targetPosition[1]) <= moveSpeed;
     }
     private void shoot1()
     {

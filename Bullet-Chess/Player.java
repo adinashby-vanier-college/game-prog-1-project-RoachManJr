@@ -8,17 +8,15 @@ import greenfoot.*;
 public class Player extends Actor
 {
     protected int shootDelay = 20;
-    protected int dashDelay = 200;
+    protected int dashDelay = 120;
     protected int cooldownCounter = 0;
     protected int dashCooldownCounter = 0;
     private int health = 100;
     private boolean canShoot = true;
     private int cooldownTime = 60;
-    /* Cooldown time 10 sec*/
     private int delayCounter = 0;
     private boolean canTripleShot = true;
     private int tripleShotCooldownTime = 120;
-    /* 2 second cooldown for Tripleshot*/
     private int tripleShotCooldownCounter = 0;
 
     /**
@@ -132,7 +130,7 @@ public class Player extends Actor
     private void shootProjectile()
     {
         if (Greenfoot.mouseClicked(null)) {
-            /* Detect click anywhere on the world*/
+            
             MouseInfo mouse = Greenfoot.getMouseInfo();
             if (mouse != null) {
                 int mouseX = mouse.getX();
@@ -145,51 +143,119 @@ public class Player extends Actor
         }
     }
 
-    /**
-     * 
-     */
-    private void dashing()
-    {   World world = getWorld();
-        if (Greenfoot.isKeyDown("q")) {
-            /* Dash when 'q' is pressed Diagonal and straight movement based on key combinations*/
-            if (Greenfoot.isKeyDown("w") && Greenfoot.isKeyDown("a")) {
-                /* Dash top-left*/
-                setLocation(getX() - 100, getY() - 100);
+            /**
+             * 
+             */
+            private void dashing()
+    {
+        World world = getWorld();
+        int dashDistance = 40;  
+        int dashSpeed = 2;  
+        int imageWidth = getImage().getWidth();
+        int imageHeight = getImage().getHeight();
+        
+        if (dashCooldownCounter <= 0) {
+            if (Greenfoot.isKeyDown("q")) {
+                
+                if (Greenfoot.isKeyDown("w") && Greenfoot.isKeyDown("a")) {
+                    // Dash up-left
+                    for (int i = 0; i < dashSpeed; i++) {
+                        if (!checkCollision(-dashDistance/2, -dashDistance/2)) {
+                            setLocation(getX() - dashDistance/2, getY() - dashDistance/2);
+                        }
+                        Greenfoot.delay(1);
+                    }
+                } else if (Greenfoot.isKeyDown("w") && Greenfoot.isKeyDown("d")) {
+                    // Dash up-right
+                    for (int i = 0; i < dashSpeed; i++) {
+                        if (!checkCollision(dashDistance/2, -dashDistance/2)) {
+                            setLocation(getX() + dashDistance/2, getY() - dashDistance/2);
+                        }
+                        Greenfoot.delay(1);
+                    }
+                } else if (Greenfoot.isKeyDown("s") && Greenfoot.isKeyDown("a")) {
+                    // Dash down-left
+                    for (int i = 0; i < dashSpeed; i++) {
+                        if (!checkCollision(-dashDistance/2, dashDistance/2)) {
+                            setLocation(getX() - dashDistance/2, getY() + dashDistance/2);
+                        }
+                        Greenfoot.delay(1);
+                    }
+                } else if (Greenfoot.isKeyDown("s") && Greenfoot.isKeyDown("d")) {
+                    // Dash down-right
+                    for (int i = 0; i < dashSpeed; i++) {
+                        if (!checkCollision(dashDistance/2, dashDistance/2)) {
+                            setLocation(getX() + dashDistance/2, getY() + dashDistance/2);
+                        }
+                        Greenfoot.delay(1);
+                    }
+                }
+                // Check for straight dashes
+                else if (Greenfoot.isKeyDown("w")) {
+                    // Dash upwards
+                    for (int i = 0; i < dashSpeed; i++) {
+                        if (!checkCollision(0, -dashDistance)) {
+                            setLocation(getX(), getY() - dashDistance);
+                        }
+                        Greenfoot.delay(1);
+                    }
+                } else if (Greenfoot.isKeyDown("a")) {
+                    // Dash left
+                    for (int i = 0; i < dashSpeed; i++) {
+                        if (!checkCollision(-dashDistance, 0)) {
+                            setLocation(getX() - dashDistance, getY());
+                        }
+                        Greenfoot.delay(1);
+                    }
+                } else if (Greenfoot.isKeyDown("s")) {
+                    // Dash downwards
+                    for (int i = 0; i < dashSpeed; i++) {
+                        if (!checkCollision(0, dashDistance)) {
+                            setLocation(getX(), getY() + dashDistance);
+                        }
+                        Greenfoot.delay(1);
+                    }
+                } else if (Greenfoot.isKeyDown("d")) {
+                    // Dash right
+                    for (int i = 0; i < dashSpeed; i++) {
+                        if (!checkCollision(dashDistance, 0)) {
+                            setLocation(getX() + dashDistance, getY());
+                        }
+                        Greenfoot.delay(1);
+                    }
+                }
+                // Default dash (up)
+                else {
+                    for (int i = 0; i < dashSpeed; i++) {
+                        if (!checkCollision(0, -dashDistance)) {
+                            setLocation(getX(), getY() - dashDistance);
+                        }
+                        Greenfoot.delay(1);
+                    }
+                }
+                
+                
+                dashCooldownCounter = dashDelay;
             }
-            else if (Greenfoot.isKeyDown("w") && Greenfoot.isKeyDown("d")) {
-                /* Dash top-right*/
-                setLocation(getX() + 100, getY() - 100);
-            }
-            else if (Greenfoot.isKeyDown("s") && Greenfoot.isKeyDown("a")) {
-                /* Dash bottom-left*/
-                setLocation(getX() - 100, getY() + 100);
-            }
-            else if (Greenfoot.isKeyDown("s") && Greenfoot.isKeyDown("d")) {
-                /* Dash bottom-right*/
-                setLocation(getX() + 100, getY() + 100);
-            }
-            else if (Greenfoot.isKeyDown("w")) {
-                /* Dash up (forward)*/
-                setLocation(getX(), getY() - 100);
-            }
-            else if (Greenfoot.isKeyDown("a")) {
-                /* Dash left*/
-                setLocation(getX() - 100, getY());
-            }
-            else if (Greenfoot.isKeyDown("s")) {
-                /* Dash down*/
-                setLocation(getX(), getY() + 100);
-            }
-            else if (Greenfoot.isKeyDown("d")) {
-                /* Dash right*/
-                setLocation(getX() + 100, getY());
-            }
-            else {
-                /* If no directional key is pressed, dash forward (upward)*/
-                setLocation(getX(), getY() - 100);
-            }
+        } else {
+            
+            dashCooldownCounter--;
         }
     }
+
+    private boolean checkCollision(int xOffset, int yOffset)
+    {
+        int imageWidth = getImage().getWidth();
+        int imageHeight = getImage().getHeight();
+        
+        
+        if (getOneObjectAtOffset(xOffset, yOffset, Assets.class) != null) {
+            return true;
+        }
+        
+        return false; 
+    }
+
 
     /**
      * 
@@ -261,7 +327,7 @@ public class Player extends Actor
         if (canTripleShot && Greenfoot.isKeyDown("3")) {
             shootTripleShot();
             canTripleShot = false;
-            /* Start cooldown for TripleShot*/
+            
         }
     }
 
