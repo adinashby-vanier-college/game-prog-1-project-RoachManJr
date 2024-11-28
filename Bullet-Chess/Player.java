@@ -18,6 +18,9 @@ public class Player extends Actor
     private boolean canTripleShot = true;
     private int tripleShotCooldownTime = 120;
     private int tripleShotCooldownCounter = 0;
+    private boolean canShootBoo = true;
+    private int booCooldownTime = 60;
+    private int delayBooCounter = 0;
     private Heart[] hearts;
      private int hitCooldown;  // Timer for invincibility after being hit
     private static final int INVINCIBILITY_TIME = 60;  // Cooldown time (in frames, 60 frames = 1 second)
@@ -46,6 +49,7 @@ public class Player extends Actor
         canMoveDown();
         performAction();
         doAction();
+        actBoomerang();
         if (Greenfoot.mouseClicked(null) && cooldownCounter <= 0) {
             shootProjectile();
             cooldownCounter = shootDelay;
@@ -303,7 +307,56 @@ public class Player extends Actor
         return false; 
     }
 
-
+    public void actBoomerang()
+    {
+        handleBoomerang();
+        boomerangCooldown();
+    }
+    
+    /**
+     * 
+     */
+    private void handleBoomerang()
+    {
+        if (canShootBoo && Greenfoot.isKeyDown("2")) {
+            fireBoomerang();
+            canShootBoo = false;
+        }
+    }
+    
+    /**
+     * 
+     */
+    private void fireBoomerang()
+    {
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        if (mouse != null) {
+            int mouseX = mouse.getX();
+            int mouseY = mouse.getY();
+            int playerX = getX();
+            int playerY = getY();
+            int angle = (int)Math.toDegrees(Math.atan2(mouseY - playerY, mouseX - playerX));
+            World world = getWorld();
+            BoomerangShot boomerangShot =  new  BoomerangShot(getX(), getY(), angle, 8);
+            world.addObject(boomerangShot, playerX, playerY);
+            boomerangShot.setRotation(angle);
+        }
+    }
+    
+    /**
+     * 
+     */
+    private void boomerangCooldown()
+    {
+        if ( ! canShootBoo) {
+            delayBooCounter = delayBooCounter + 1;
+            if (delayBooCounter >= booCooldownTime) {
+                canShootBoo = true;
+                delayBooCounter = 0;
+            }
+        }
+    }
+    
     /**
      * 
      */

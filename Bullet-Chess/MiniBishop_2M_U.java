@@ -1,18 +1,17 @@
 import greenfoot.*;  
 import java.util.Random;  
 
-public class MiniBishop extends Bishop {
+public class MiniBishop_2M_U extends Bishop {
     
     private int[] center = {470, 500}; 
 
     
     private int[][] corners = {
-        {280, 513},      
-        {472, 636},    
-        {472, 407},    
-        {660, 509}   
+        {660, 509}, //r
+        {472, 636}, //d
+        {280, 513}, //l
+        {472, 407}  //u
     };
-
     private int currentCornerIndex = 0;  
     private boolean isMoving = false;    
     private int[] targetPosition;        
@@ -27,7 +26,8 @@ public class MiniBishop extends Bishop {
             if (targetPosition == null || targetPosition == center) {
                 moveToNextCorner();  
             } else {
-                moveToCenter(); 
+                //moveToCenter(); 
+                moveToNextCorner();  
             }
         }
 
@@ -41,7 +41,7 @@ public class MiniBishop extends Bishop {
             isMoving = false; 
 
             
-            if (targetPosition == center) {
+            if (targetPosition == corners[currentCornerIndex]) {
                 currentCornerIndex = (currentCornerIndex + 1) % corners.length;  
             }
         }

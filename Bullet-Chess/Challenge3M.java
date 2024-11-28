@@ -80,5 +80,7 @@ public class Challenge3M extends World
         addObject(miniKnightF,181,693);
         MiniKnightF miniKnightF2 = new MiniKnightF();
         addObject(miniKnightF2,761,693);
+        MiniBishop_3M miniBishop_3M = new MiniBishop_3M();
+        addObject(miniBishop_3M,472,605);
     }
 }

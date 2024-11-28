@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=BoomerangShot
+comment1.params=x\ y\ angle\ speed
+comment1.target=BoomerangShot(int,\ int,\ double,\ int)
+comment1.text=\r\n\ Bullet\ constructor\r\n
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ update()
+comment4.params=
+comment4.target=void\ handleMovement()
+comment5.params=
+comment5.target=void\ comeBack()
+comment6.params=
+comment6.target=void\ markAsFinal()
+numComments=7
