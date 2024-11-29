@@ -30,8 +30,8 @@ public class Player extends Actor
     private int checkpointY;  // Y position of the last checkpoint
     public Player()
     {
-        health = 3;
-        hearts = new Heart[3];
+        health = 5;
+        hearts = new Heart[health];
         hitCooldown = 0;  // Start with no cooldown
         invincible = false;  // Player is not invincible initially
         flashTimer = 0;
@@ -69,9 +69,9 @@ public class Player extends Actor
         {
             if (hearts[0] == null) {
                 // Create the hearts and add them to the world once the player is in the world
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < health; i++) {
                     hearts[i] = new Heart(true); // Start with all full hearts
-                    getWorld().addObject(hearts[i], 30, getWorld().getHeight() - 130 + i * 50);  // Position them in the bottom left
+                    getWorld().addObject(hearts[i], 30, getWorld().getHeight() - 250 + i * 50);  // Position them in the bottom left
                 }
             }
         }
@@ -482,7 +482,7 @@ public class Player extends Actor
     
     public void heal(int amount){
         health += amount;
-        if (health > 3) health = 3;
+        if (health > 5) health = 5;
     }
     
     public boolean isDead()
@@ -492,7 +492,7 @@ public class Player extends Actor
     
     public void displayHealth()
     {
-         for (int i = 0; i < 3; i++)
+         for (int i = 0; i < 5; i++)
         {
             if (i < health)
             {
@@ -557,7 +557,7 @@ public class Player extends Actor
     public void respawn()
     {
         setLocation(checkpointX, checkpointY);  // Move the player to the checkpoint
-        health = 3;  // Reset health to maximum (3 hearts)
+        health = 5;  // Reset health to maximum (5 hearts)
         displayHealth();  // Update health display
     }
 }
