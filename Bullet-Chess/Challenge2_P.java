@@ -45,5 +45,7 @@ public class Challenge2_P extends World
         addObject(safeEntrance,285,535);
         Player player = new Player();
         addObject(player,285,530);
+        InfoPaperBomb infoPaperBomb = new InfoPaperBomb();
+        addObject(infoPaperBomb,291,326);
     }
 }

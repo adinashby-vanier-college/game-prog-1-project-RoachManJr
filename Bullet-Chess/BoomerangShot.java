@@ -11,6 +11,7 @@ public class BoomerangShot extends Player {
     private boolean hasComeBack = false; // Tracks if the projectile has already split
     private int distanceBeforeDisappearing = 0; // Distance traveled by split projectiles
     private double angle;
+    GifImage Spin = new GifImage("bullet006.gif");
     
     /**
      * Bullet constructor
@@ -24,6 +25,7 @@ public class BoomerangShot extends Player {
     
     // Default 'act' method called by Greenfoot
     public void act() {
+        setImage(Spin.getCurrentImage());
         update();  // Call the renamed 'update' method inside the act method
     }
     

@@ -25,7 +25,7 @@ public class FadeTransitionChallenge1 extends Actor
             getImage().setTransparency(opacity);
         } else {
             // Transition to the next world once fully opaque
-            Greenfoot.setWorld(new Challenge1M());
+            Greenfoot.setWorld(new Challenge1_1());
         }
     }
 }

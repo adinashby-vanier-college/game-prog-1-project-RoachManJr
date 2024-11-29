@@ -1,3 +1,5 @@
-brick walls: -by ShadowArtist
+"brick walls" -by ShadowArtist
 
-stonewallwithcolumns-tileset -by Michael Howe
+"stonewallwithcolumns-tileset" -by Michael Howe
+
+"boomerang png" -by Napoleon

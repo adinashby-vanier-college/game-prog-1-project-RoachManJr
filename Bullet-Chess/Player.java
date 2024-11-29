@@ -50,6 +50,7 @@ public class Player extends Actor
         performAction();
         doAction();
         actBoomerang();
+        transitionToSystemOfWorlds();
         if (Greenfoot.mouseClicked(null) && cooldownCounter <= 0) {
             shootProjectile();
             cooldownCounter = shootDelay;
@@ -559,5 +560,30 @@ public class Player extends Actor
         setLocation(checkpointX, checkpointY);  // Move the player to the checkpoint
         health = 5;  // Reset health to maximum (5 hearts)
         displayHealth();  // Update health display
+    }
+    
+    public void transitionToSystemOfWorlds()
+    {
+        if (isTouching(InfoPaperTriple.class)){
+            World systemOfTriple =  new  SystemOfTriple();
+            Greenfoot.setWorld(systemOfTriple); // go to (this) world
+        } else if (isTouching(InfoPaperBomb.class)){
+            World systemOfBomb =  new  SystemOfBomb();
+            Greenfoot.setWorld(systemOfBomb); // go to (this) world
+        } else if (isTouching(InfoPaperBoomerang.class)){
+            World systemOfBoomerang =  new  SystemOfBoomerang();
+            Greenfoot.setWorld(systemOfBoomerang); // go to (this) world
+        } else if (isTouching(InfoPaperDoor.class)){
+            World systemOfDoor =  new  SystemOfDoor();
+            Greenfoot.setWorld(systemOfDoor); // go to (this) world
+        } else if (isTouching(InfoPaperDash.class)){
+            World systemOfDash =  new  SystemOfDash();
+            Greenfoot.setWorld(systemOfDash); // go to (this) world
+        } else if (isTouching(InfoPaperShoot.class)){
+            World systemOfShoot =  new  SystemOfShoot();
+            Greenfoot.setWorld(systemOfShoot); // go to (this) world
+        }
+        //World gameWonWorld =  new  GameWonWorld();
+        //Greenfoot.setWorld(gameWonWorld);
     }
 }

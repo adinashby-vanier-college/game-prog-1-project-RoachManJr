@@ -52,6 +52,12 @@ public class HubWorld extends World
         addObject(roofFloor,254,778);
         RoofFloor roofFloor2 = new RoofFloor();
         addObject(roofFloor2,547,778);
+        InfoPaperDoor infoPaperDoor = new InfoPaperDoor();
+        addObject(infoPaperDoor,400,180);
+        InfoPaperDash infoPaperDash = new InfoPaperDash();
+        addObject(infoPaperDash,220,585);
+        InfoPaperShoot infoPaperShoot = new InfoPaperShoot();
+        addObject(infoPaperShoot,580,585);
     }
 
      public void act() {
