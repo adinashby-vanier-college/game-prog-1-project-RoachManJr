@@ -5,15 +5,34 @@ public class MiniRook_2_1_Bottom extends Rook
     private int speed = 2;  
     int shooting = 40;
     int cooldownShooting = -10;
+    
+    private int health = 6; 
+    private HealthBar healthBar;
     public MiniRook_2_1_Bottom()
     {
         
         targetX = 470;
         targetY = 547;
+        
+        healthBar = new HealthBar(6);
+        healthBar.setOwner(this);
+    }
+    
+    public void addedToWorld(World world)
+    {
+        world.addObject(healthBar, getX(), getY() - 30);
     }
 
     public void act()
     {
+        if (health <= 0) {
+            removeSelf();
+            return; 
+        }
+        
+        if (getWorld() == null) return;
+        
+        updateHealthBar();
         
         moveToTarget();
         
@@ -28,6 +47,23 @@ public class MiniRook_2_1_Bottom extends Rook
         if (cooldownShooting > -10) {
                 cooldownShooting--;
             }
+        
+        checkForProjectileCollision();
+    }
+    
+    private void updateHealthBar() {
+        if (healthBar.getWorld() != null) {
+            healthBar.setLocation(getX(), getY() - 30); 
+        }
+    }
+
+    private void removeSelf() {
+        if (healthBar != null && healthBar.getWorld() != null) {
+            getWorld().removeObject(healthBar);
+        }
+        if (getWorld() != null) {
+            getWorld().removeObject(this);
+        }
     }
 
     private void moveToTarget()
@@ -95,5 +131,33 @@ public class MiniRook_2_1_Bottom extends Rook
         getWorld().addObject(topBullet, getX(), getY());
         getWorld().addObject(bottomBullet, getX(), getY());
         getWorld().addObject(leftBullet, getX(), getY());
+    }
+    
+    private void checkForProjectileCollision() {
+        if (isTouching(projectile.class)) {
+            health -= 1;
+            healthBar.decreaseHealth(1); 
+            removeTouching(projectile.class);
+        }
+        if (isTouching(AOE.class)) {
+            health -= 1;
+            healthBar.decreaseHealth(1); 
+            removeTouching(AOE.class);
+        }
+        if (isTouching(BoomerangShot.class)) {
+            health -= 3;
+            healthBar.decreaseHealth(3); 
+            removeTouching(BoomerangShot.class);
+        }
+        if (isTouching(ReturningBoomerangShot.class)) {
+            health -= 3;
+            healthBar.decreaseHealth(3); 
+            removeTouching(ReturningBoomerangShot.class);
+        }
+        if (isTouching(TripleShotProjectile.class)) {
+            health -= 1;
+            healthBar.decreaseHealth(1); 
+            removeTouching(TripleShotProjectile.class);
+        }
     }
 }

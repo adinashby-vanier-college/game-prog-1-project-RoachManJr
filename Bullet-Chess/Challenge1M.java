@@ -80,15 +80,15 @@ public class Challenge1M extends World
         addObject(safeEntrance,470,905);
         Player player = new Player();
         addObject(player,470,900);
-        MiniKnightF miniKnightF = new MiniKnightF();
+        MiniKnight_UL miniKnightF = new MiniKnight_UL();
         addObject(miniKnightF,119,218);
-        MiniKnightF miniKnightF2 = new MiniKnightF();
+        MiniKnight_UR miniKnightF2 = new MiniKnight_UR();
         addObject(miniKnightF2,824,218);
-        MiniKnightF miniKnightF3 = new MiniKnightF();
+        MiniKnight_BR miniKnightF3 = new MiniKnight_BR();
         addObject(miniKnightF3,824,817);
-        MiniKnightF miniKnightF4 = new MiniKnightF();
+        MiniKnight_BL miniKnightF4 = new MiniKnight_BL();
         addObject(miniKnightF4,119,817);
-        MiniKnightBH miniKnightBH = new MiniKnightBH();
+        MiniKnightMiddle miniKnightBH = new MiniKnightMiddle();
         addObject(miniKnightBH,471,511);
     }
 }

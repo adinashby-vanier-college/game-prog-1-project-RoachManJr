@@ -36,6 +36,8 @@ public class MiniShieldKnight extends Knight
         if (cooldownCounter > 0) {
             cooldownCounter--;
         }
+        
+        checkForProjectileCollision();
     }
 
     /**
@@ -53,6 +55,24 @@ public class MiniShieldKnight extends Knight
 
             BulletHorse2 bulletHorse2 = new BulletHorse2(getX(), getY(), angle, speed); 
             getWorld().addObject(bulletHorse2, getX(), getY()); 
+        }
+    }
+    
+    private void checkForProjectileCollision() {
+        if (isTouching(projectile.class)) { 
+            removeTouching(projectile.class);
+        }
+        if (isTouching(AOE.class)) { 
+            removeTouching(AOE.class);
+        }
+        if (isTouching(BoomerangShot.class)) { 
+            removeTouching(BoomerangShot.class);
+        }
+        if (isTouching(ReturningBoomerangShot.class)) {
+            removeTouching(ReturningBoomerangShot.class);
+        }
+        if (isTouching(TripleShotProjectile.class)) {
+            removeTouching(TripleShotProjectile.class);
         }
     }
 }

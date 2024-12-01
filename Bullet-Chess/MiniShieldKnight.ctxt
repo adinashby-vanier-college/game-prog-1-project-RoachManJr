@@ -7,4 +7,6 @@ comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Knight\ wants\ to\ do.\r\n
 comment2.params=
 comment2.target=void\ move2()
 comment2.text=\r\n\ Second\ move\:\ Shoot\ bullets\ at\ the\ Player.\r\n
-numComments=3
+comment3.params=
+comment3.target=void\ checkForProjectileCollision()
+numComments=4

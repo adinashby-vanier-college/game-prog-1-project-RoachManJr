@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=MiniKnightBH
-comment0.text=\r\n\ Knight\ class\ that\ moves\ and\ shoots\ bullets\ at\ the\ Player.\r\n
-comment1.params=
-comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Knight\ wants\ to\ do.\r\n
-comment2.params=
-comment2.target=void\ move3()
-numComments=3

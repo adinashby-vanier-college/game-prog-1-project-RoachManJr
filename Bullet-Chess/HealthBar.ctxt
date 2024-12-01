@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=HealthBar
+comment1.params=maxHealth
+comment1.target=HealthBar(int)
+comment2.params=owner
+comment2.target=void\ setOwner(greenfoot.Actor)
+comment3.params=health
+comment3.target=void\ updateHealth(int)
+comment4.params=amount
+comment4.target=void\ decreaseHealth(int)
+comment5.params=
+comment5.target=void\ updateBar()
+numComments=6
