@@ -4,8 +4,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class BoomerangShot extends Player {
     private int distanceTraveled = 0;
-    private int splitDistance = 200; // Distance after which it splits (for the main projectile)
-    private int maxTravelDistance = 200; // Maximum distance before the split projectiles disappear
+    private int splitDistance = 400; // Distance after which it splits (for the main projectile)
+    private int maxTravelDistance = 400; // Maximum distance before the split projectiles disappear
     private int speed = 5;
     private float radius = 75; 
     private boolean hasComeBack = false; // Tracks if the projectile has already split

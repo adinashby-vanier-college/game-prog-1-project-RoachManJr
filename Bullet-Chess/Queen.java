@@ -40,11 +40,29 @@ public class Queen extends NPCs
     private boolean isMoving = false;    
     private int[] targetPosition;        
     private int moveSpeed = 3; 
+    
+    private int health = 70; 
+    private HealthBarQueen healthBar;
+    
+    
+    
+    public Queen()
+    {
+        healthBar = new HealthBarQueen(70);
+    }
     /**
      * Act - do whatever the Boss_3_1 wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
+        if (health <= 0) {
+            if (healthBar.getWorld() != null) {
+                getWorld().removeObject(healthBar);
+                getWorld().removeObject(bulletHorse1);
+            }
+            getWorld().removeObject(this);
+            return;
+        }
         shoot1();
         shoot2();
         shoot3();
@@ -71,6 +89,12 @@ public class Queen extends NPCs
             if (targetPosition == center) {
                 currentCornerIndex = (currentCornerIndex + 1) % corners.length;  
             }
+        }
+        if (getWorld() != null) {
+            if (healthBar.getWorld() == null) {
+                getWorld().addObject(healthBar, 250 , 20); 
+            }
+            checkForProjectileCollision();
         }
     }
     private void moveToNextCorner() {
@@ -167,6 +191,60 @@ public class Queen extends NPCs
                 BulletHorse2 bulletHorse2 = new BulletHorse2(getX(), getY(), angle, speed); 
                 getWorld().addObject(bulletHorse2, getX(), getY()); 
                 }
+        }
+    }
+    
+    private void checkForProjectileCollision()
+    {
+        java.util.List<projectile> projectiles = getWorld().getObjects(projectile.class);
+        for (projectile proj : projectiles)
+        {
+            if (isTouching(projectile.class)) 
+            {
+                health -= 1;
+                healthBar.decreaseHealth(1); 
+                getWorld().removeObject(proj);
+            }
+        }
+        java.util.List<AOE> AOES = getWorld().getObjects(AOE.class);
+        for (AOE aoe : AOES)
+        {
+            if (isTouching(AOE.class)) 
+            {
+                health -= 1;
+                healthBar.decreaseHealth(1); 
+                getWorld().removeObject(aoe);
+            }
+        }
+        java.util.List<BoomerangShot> BoomerangShots = getWorld().getObjects(BoomerangShot.class);
+        for (BoomerangShot boomerangShot : BoomerangShots)
+        {
+            if (isTouching(BoomerangShot.class)) 
+            {
+                health -= 3;
+                healthBar.decreaseHealth(3); 
+                getWorld().removeObject(boomerangShot);
+            }
+        }
+        java.util.List<ReturningBoomerangShot> ReturningBoomerangShots = getWorld().getObjects(ReturningBoomerangShot.class);
+        for (ReturningBoomerangShot returningBoomerangShot : ReturningBoomerangShots)
+        {
+            if (isTouching(ReturningBoomerangShot.class)) 
+            {
+                health -= 3;
+                healthBar.decreaseHealth(3); 
+                getWorld().removeObject(returningBoomerangShot);
+            }
+        }
+        java.util.List<TripleShotProjectile> TripleShotProjectiles = getWorld().getObjects(TripleShotProjectile.class);
+        for (TripleShotProjectile tripleshotProjectile : TripleShotProjectiles)
+        {
+            if (isTouching(TripleShotProjectile.class)) 
+            {
+                health -= 1;
+                healthBar.decreaseHealth(1); 
+                getWorld().removeObject(tripleshotProjectile);
+            }
         }
     }
 }

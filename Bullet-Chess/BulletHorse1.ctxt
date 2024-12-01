@@ -7,4 +7,6 @@ comment2.params=
 comment2.target=void\ act()
 comment3.params=centerX\ centerY
 comment3.target=void\ updateCenter(int,\ int)
-numComments=4
+comment4.params=
+comment4.target=void\ checkForProjectileCollision2()
+numComments=5

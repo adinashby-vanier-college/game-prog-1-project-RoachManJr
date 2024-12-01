@@ -56,5 +56,8 @@ public class BossLevel3 extends World
         addObject(safeEntrance,498,784);
         Player player = new Player();
         addObject(player,500,780);
+        King king = new King(player);
+        addObject(king,608,345);
+        king.setLocation(789,192);
     }
 }

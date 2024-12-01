@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=HealthBarBishop
+comment0.text=\r\n\ \r\n
+comment1.params=maxHealth
+comment1.target=HealthBarBishop(int)
+comment2.params=
+comment2.target=void\ updateHealthBar()
+comment3.params=amount
+comment3.target=void\ decreaseHealth(int)
+comment3.text=\r\n\ Decrease\ health\ by\ a\ given\ amount.\r\n
+comment4.params=
+comment4.target=int\ getHealth()
+comment4.text=\r\n\ Get\ the\ current\ health.\r\n
+numComments=5
