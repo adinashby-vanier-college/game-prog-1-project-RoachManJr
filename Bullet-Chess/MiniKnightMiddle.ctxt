@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #BlueJ class context
 comment0.target=MiniKnightMiddle
 comment0.text=\r\n\ Knight\ class\ that\ moves\ and\ shoots\ bullets\ at\ the\ Player.\r\n
@@ -17,3 +18,24 @@ comment6.target=void\ move3()
 comment7.params=
 comment7.target=void\ checkForProjectileCollision()
 numComments=8
+=======
+#BlueJ class context
+comment0.target=MiniKnightMiddle
+comment0.text=\r\n\ Knight\ class\ that\ moves\ and\ shoots\ bullets\ at\ the\ Player.\r\n
+comment1.params=
+comment1.target=MiniKnightMiddle()
+comment2.params=world
+comment2.target=void\ addedToWorld(greenfoot.World)
+comment3.params=
+comment3.target=void\ act()
+comment3.text=\r\n\ Act\ -\ do\ whatever\ the\ Knight\ wants\ to\ do.\r\n
+comment4.params=
+comment4.target=void\ updateHealthBar()
+comment5.params=
+comment5.target=void\ removeSelf()
+comment6.params=
+comment6.target=void\ move3()
+comment7.params=
+comment7.target=void\ checkForProjectileCollision()
+numComments=8
+>>>>>>> 0f1430a89f5d5b93939ae2f98e48338ce7ed3a0e
