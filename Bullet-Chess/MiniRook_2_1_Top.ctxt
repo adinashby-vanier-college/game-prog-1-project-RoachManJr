@@ -2,6 +2,8 @@
 comment0.target=MiniRook_2_1_Top
 comment1.params=
 comment1.target=MiniRook_2_1_Top()
+comment10.params=
+comment10.target=void\ checkForProjectileCollision()
 comment2.params=world
 comment2.target=void\ addedToWorld(greenfoot.World)
 comment3.params=
@@ -18,4 +20,4 @@ comment8.params=
 comment8.target=void\ moveToRandomHorizontal()
 comment9.params=
 comment9.target=void\ shoot()
-numComments=10
+numComments=11
