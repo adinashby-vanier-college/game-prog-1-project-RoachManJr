@@ -7,7 +7,6 @@ import greenfoot.*;
  */
 public class Challenge1_1 extends World
 {
-
     /**
      * Constructor for objects of class Challenge1_1.
      */
@@ -53,5 +52,7 @@ public class Challenge1_1 extends World
         addObject(miniShieldKnight3,142,250);
         MiniShieldKnight miniShieldKnight4 = new MiniShieldKnight();
         addObject(miniShieldKnight4,428,250);
+        DoorTrigger1Challenge1 trigger = new DoorTrigger1Challenge1();
+        addObject(trigger, 282, 150);
     }
 }

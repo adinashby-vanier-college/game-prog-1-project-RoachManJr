@@ -7,7 +7,14 @@ import greenfoot.*;
  */
 public class Challenge3M extends World
 {
-
+    private RoofedClosedDoor roofedClosedDoor;
+    private MiniRook_3M_UL rookLeft;
+    private MiniRook_3M_LR rookRight;
+    private MiniBishop_3M bishMid;
+    private MiniKnight_3M_Middle knightMid;
+    private MiniKnight_3M_L knightLeft;
+    private MiniKnight_3M_R knightRight;
+    private boolean doorOpened = false;
     /**
      * Constructor for objects of class Challenge1M.
      */
@@ -70,17 +77,28 @@ public class Challenge3M extends World
         addObject(safeEntrance,470,905);
         Player player = new Player();
         addObject(player,470,902);
-        MiniRook_3M_UL miniRook = new MiniRook_3M_UL();
-        addObject(miniRook,102,190);
-        MiniRook_3M_LR miniRook2 = new MiniRook_3M_LR();
-        addObject(miniRook2,830,840);
-        MiniKnight_3M_Middle miniKnightBH = new MiniKnight_3M_Middle();
-        addObject(miniKnightBH,471,511);
-        MiniKnight_3M_L miniKnightF = new MiniKnight_3M_L();
-        addObject(miniKnightF,181,693);
-        MiniKnight_3M_R miniKnightF2 = new MiniKnight_3M_R();
-        addObject(miniKnightF2,761,693);
-        MiniBishop_3M miniBishop_3M = new MiniBishop_3M();
-        addObject(miniBishop_3M,472,605);
+        
+        rookLeft = new MiniRook_3M_UL();
+        addObject(rookLeft,102,190);
+        rookRight = new MiniRook_3M_LR();
+        addObject(rookRight,830,840);
+        knightMid = new MiniKnight_3M_Middle();
+        addObject(knightMid,471,511);
+        knightLeft = new MiniKnight_3M_L();
+        addObject(knightLeft,181,693);
+        knightRight = new MiniKnight_3M_R();
+        addObject(knightRight,761,693);
+        bishMid = new MiniBishop_3M();
+        addObject(bishMid,472,605);
+    }
+    public void act(){
+        if (!doorOpened && rookLeft != null && rookRight != null && knightMid != null && knightLeft != null && knightRight != null && bishMid != null && !getObjects(MiniRook_3M_UL.class).contains(rookLeft) && !getObjects(MiniRook_3M_LR.class).contains(rookRight) && !getObjects(MiniBishop_3M.class).contains(bishMid) && !getObjects(MiniKnight_3M_Middle.class).contains(knightMid) && !getObjects(MiniKnight_3M_L.class).contains(knightLeft) && !getObjects(MiniKnight_3M_R.class).contains(knightRight)){
+          removeObject(roofedClosedDoor);
+          RoofedOpenedDoor roofedOpenedDoor = new RoofedOpenedDoor();
+          addObject(roofedOpenedDoor, 470, 70);
+          DoorTrigger3ChallengeP trigger = new DoorTrigger3ChallengeP();
+          addObject(trigger,470,145);
+          doorOpened = true;
+      }
     }
 }

@@ -44,6 +44,6 @@ public class SystemOfBomb extends World
      */
     public void act()
     {
-        if (Greenfoot.isKeyDown("space")) Greenfoot.setWorld(new HubWorld());
+        if (Greenfoot.isKeyDown("space")) Greenfoot.setWorld(new HubWorld2Closed());
     }
 }

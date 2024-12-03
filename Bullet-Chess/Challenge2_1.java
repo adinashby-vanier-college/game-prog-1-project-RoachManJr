@@ -7,7 +7,6 @@ import greenfoot.*;
  */
 public class Challenge2_1 extends World
 {
-
     /**
      * Constructor for objects of class Challenge2_1.
      */
@@ -71,5 +70,8 @@ public class Challenge2_1 extends World
         addObject(roofedWallWithoutBanner8,357,261);
         MiniRook_2_1_Top miniRook3 = new MiniRook_2_1_Top();
         addObject(miniRook3,78,165);
+        
+        DoorTrigger2ChallengeM trigger = new DoorTrigger2ChallengeM();
+        addObject(trigger, 282, 145);
     }
 }

@@ -7,7 +7,13 @@ import greenfoot.*;
  */
 public class Challenge1M extends World
 {
-
+    private RoofedClosedDoor roofedClosedDoor;
+    private MiniKnight_UL uL;
+    private MiniKnight_UR uR;
+    private MiniKnight_BR bR;
+    private MiniKnight_BL bL;
+    private MiniKnightMiddle mid;
+    private boolean doorOpened = false;
     /**
      * Constructor for objects of class Challenge3M.
      */
@@ -22,14 +28,25 @@ public class Challenge1M extends World
      */
     private void prepare()
     {
+        roofedClosedDoor = new RoofedClosedDoor();
+        addObject(roofedClosedDoor, 470, 70);
+        uL = new MiniKnight_UL();
+        addObject(uL,119,218);
+        uR = new MiniKnight_UR();
+        addObject(uR,824,218);
+        bR = new MiniKnight_BR();
+        addObject(bR,824,817);
+        bL = new MiniKnight_BL();
+        addObject(bL,119,817);
+        mid = new MiniKnightMiddle();
+        addObject(mid,471,511);
+        
         RoofedWallWithBanner roofedWallWithBanner =  new  RoofedWallWithBanner();
         addObject(roofedWallWithBanner, 123, 70);
         RoofedWallWithoutBanner roofedWallWithoutBanner =  new  RoofedWallWithoutBanner();
         addObject(roofedWallWithoutBanner, 243, 70);
         RoofedWallWithBanner roofedWallWithBanner2 =  new  RoofedWallWithBanner();
         addObject(roofedWallWithBanner2, 363, 70);
-        RoofedClosedDoor roofedClosedDoor =  new  RoofedClosedDoor();
-        addObject(roofedClosedDoor, 470, 70);
         RoofedWallWithBanner roofedWallWithBanner3 =  new  RoofedWallWithBanner();
         addObject(roofedWallWithBanner3, 578, 70);
         RoofedWallWithoutBanner roofedWallWithoutBanner2 =  new  RoofedWallWithoutBanner();
@@ -80,15 +97,15 @@ public class Challenge1M extends World
         addObject(safeEntrance,470,905);
         Player player = new Player();
         addObject(player,470,900);
-        MiniKnight_UL miniKnightF = new MiniKnight_UL();
-        addObject(miniKnightF,119,218);
-        MiniKnight_UR miniKnightF2 = new MiniKnight_UR();
-        addObject(miniKnightF2,824,218);
-        MiniKnight_BR miniKnightF3 = new MiniKnight_BR();
-        addObject(miniKnightF3,824,817);
-        MiniKnight_BL miniKnightF4 = new MiniKnight_BL();
-        addObject(miniKnightF4,119,817);
-        MiniKnightMiddle miniKnightBH = new MiniKnightMiddle();
-        addObject(miniKnightBH,471,511);
+    }
+    public void act(){
+        if (!doorOpened && uL != null && uR != null && bL != null && bR != null && mid != null && !getObjects(MiniKnight_UL.class).contains(uL) & !getObjects(MiniKnight_UR.class).contains(uR) && !getObjects( MiniKnight_BR.class).contains(bR) && !getObjects(MiniKnight_BL.class).contains(bL) && !getObjects(MiniKnightMiddle.class).contains(mid)){
+          removeObject(roofedClosedDoor);
+          RoofedOpenedDoor roofedOpenedDoor = new RoofedOpenedDoor();
+          addObject(roofedOpenedDoor, 470, 70);
+          DoorTrigger1Challenge1P trigger = new DoorTrigger1Challenge1P();
+          addObject(trigger,470,145);
+          doorOpened = true;
+      }
     }
 }

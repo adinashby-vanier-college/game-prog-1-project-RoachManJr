@@ -41,14 +41,14 @@ public class Queen extends NPCs
     private int[] targetPosition;        
     private int moveSpeed = 3; 
     
-    private int health = 70; 
+    private int health = 75; 
     private HealthBarQueen healthBar;
     
     
     
     public Queen()
     {
-        healthBar = new HealthBarQueen(70);
+        healthBar = new HealthBarQueen(75);
     }
     /**
      * Act - do whatever the Boss_3_1 wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
@@ -56,11 +56,12 @@ public class Queen extends NPCs
     public void act()
     {
         if (health <= 0) {
-            if (healthBar.getWorld() != null) {
+            /*if (healthBar.getWorld() != null) {
                 getWorld().removeObject(healthBar);
                 getWorld().removeObject(bulletHorse1);
             }
-            getWorld().removeObject(this);
+            getWorld().removeObject(this);*/
+            transitionToPhase2();
             return;
         }
         shoot1();
@@ -95,6 +96,25 @@ public class Queen extends NPCs
                 getWorld().addObject(healthBar, 250 , 20); 
             }
             checkForProjectileCollision();
+        }
+    }
+    private void transitionToPhase2() {
+        World currentWorld = getWorld();
+        if (currentWorld != null) {
+            // Remove Queen and related objects
+            currentWorld.removeObject(healthBar);
+            currentWorld.removeObject(bulletHorse1);
+            currentWorld.removeObject(this);
+
+            // Display black screen with message
+            BlackScreen blackScreen = new BlackScreen("You thought this was over?...");
+            currentWorld.addObject(blackScreen, currentWorld.getWidth() / 2, currentWorld.getHeight() / 2);
+            Greenfoot.delay(200); // Pause for a moment
+
+            // Transition to new world
+            TheBloodArena bloodArena = new TheBloodArena();
+            Greenfoot.setWorld(bloodArena);
+            bloodArena.addObject(new QueenPhase2(), bloodArena.getWidth() / 2, bloodArena.getHeight() / 2);
         }
     }
     private void moveToNextCorner() {

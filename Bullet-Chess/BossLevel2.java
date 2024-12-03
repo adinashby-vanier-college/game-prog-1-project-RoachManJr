@@ -7,7 +7,10 @@ import greenfoot.*;
  */
 public class BossLevel2 extends World
 {
-
+    private RoofedClosedDoor roofedClosedDoor;
+    private Rook rook;
+    private Bishop bishop;
+    private boolean doorOpened = false;
     /**
      * Constructor for objects of class BossLevel2.
      */
@@ -23,9 +26,9 @@ public class BossLevel2 extends World
      */
     private void prepare()
     {
-        Rook rook =  new  Rook();
+        rook =  new  Rook();
         addObject(rook, 500, 200);
-        Bishop bishop = new Bishop();
+        bishop = new Bishop();
         addObject(bishop,500,300);
         Player player = new Player();
         addObject(player,500,680);
@@ -58,9 +61,18 @@ public class BossLevel2 extends World
         SafeEntrance safeEntrance = new SafeEntrance(200, 45);
         addObject(safeEntrance,505,680);
     }
-
-    public void transitionToHubWorld(){
-        HubWorld hubWorld = new HubWorld();
-        Greenfoot.setWorld(hubWorld);
+        public void act(){
+        if (!doorOpened && rook != null && bishop != null && !getObjects(Rook.class).contains(rook) && !getObjects(Bishop.class).contains(bishop)){
+          removeObject(roofedClosedDoor);
+          RoofedOpenedDoor roofedOpenedDoor = new RoofedOpenedDoor();
+          addObject(roofedOpenedDoor, 500, 55);
+          DoorTrigger3Hub doorTrigger3 = new DoorTrigger3Hub();
+          addObject(doorTrigger3,500,130);
+          doorOpened = true;
+      }
+    }
+    public void transitionToHubWorld3(){
+        HubWorld3 hubWorld3 = new HubWorld3();
+        Greenfoot.setWorld(hubWorld3);
     }
 }

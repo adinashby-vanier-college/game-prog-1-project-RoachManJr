@@ -7,7 +7,12 @@ import greenfoot.*;
  */
 public class Challenge2M extends World
 {
-
+    private RoofedClosedDoor roofedClosedDoor;
+    private MiniRook_2M_UL rookLeft;
+    private MiniBishop_2M_D bishDown;
+    private MiniRook_2M_LR rookRight;
+    private MiniBishop_2M_U bishUp;
+    private boolean doorOpened = false;
     /**
      * Constructor for objects of class Challenge2M.
      */
@@ -69,13 +74,24 @@ public class Challenge2M extends World
         addObject(safeEntrance,470,905);
         Player player = new Player();
         addObject(player,470,902);
-        MiniRook_2M_UL miniRook = new MiniRook_2M_UL();
-        addObject(miniRook,102,190);
-        MiniBishop_2M_D bishop = new MiniBishop_2M_D();
-        addObject(bishop,472, 407);
-        MiniRook_2M_LR miniRook2 = new MiniRook_2M_LR();
-        addObject(miniRook2,830,840);
-        MiniBishop_2M_U bishop2 = new MiniBishop_2M_U();
-        addObject(bishop2,472, 636);
+        
+        rookLeft = new MiniRook_2M_UL();
+        addObject(rookLeft,102,190);
+        bishDown = new MiniBishop_2M_D();
+        addObject(bishDown,472, 407);
+        rookRight = new MiniRook_2M_LR();
+        addObject(rookRight,830,840);
+        bishUp = new MiniBishop_2M_U();
+        addObject(bishUp,472, 636);
+    }
+        public void act(){
+        if (!doorOpened && rookLeft != null && rookRight != null && bishUp != null && bishDown != null && !getObjects(MiniRook_2M_UL.class).contains(rookLeft) && !getObjects(MiniRook_2M_LR.class).contains(rookRight) && !getObjects(MiniBishop_2M_D.class).contains(bishDown) && !getObjects(MiniBishop_2M_U.class).contains(bishUp)){
+          removeObject(roofedClosedDoor);
+          RoofedOpenedDoor roofedOpenedDoor = new RoofedOpenedDoor();
+          addObject(roofedOpenedDoor, 470, 70);
+          DoorTrigger2ChallengeP trigger = new DoorTrigger2ChallengeP();
+          addObject(trigger,470,145);
+          doorOpened = true;
+      }
     }
 }

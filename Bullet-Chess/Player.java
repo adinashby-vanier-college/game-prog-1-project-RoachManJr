@@ -26,8 +26,7 @@ public class Player extends Actor
     private static final int INVINCIBILITY_TIME = 60;  // Cooldown time (in frames, 60 frames = 1 second)
     private boolean invincible;  // Whether the player is currently invincible
      private int flashTimer;  // Timer for controlling the flashing effect
-     private int checkpointX;  // X position of the last checkpoint
-    private int checkpointY;  // Y position of the last checkpoint
+     // Static variables for saving state
     public Player()
     {
         health = 5;
@@ -77,9 +76,6 @@ public class Player extends Actor
             }
         }
         displayHealth();  // Update the health display
-        if (isTouching(Checkpoint.class)) {
-                setCheckpoint();  // Call the setCheckpoint method when the player touches the checkpoint
-            }
         checkForDamage();
         if (invincible)
             {
@@ -547,17 +543,11 @@ public class Player extends Actor
         getWorld().removeObject(this);  // Remove the player from the world
         
         // Optionally, show a "Game Over" message, or reset the game
-        Greenfoot.setWorld(new GameOverScreen(this, getWorld()));
-    }
-    public void setCheckpoint()
-    {
-        checkpointX = getX();  // Save current X position
-        checkpointY = getY();  // Save current Y position
+        Greenfoot.setWorld(new GameOverScreen(this));
     }
     // Respawn the player at the checkpoint position and reset health
     public void respawn()
     {
-        setLocation(checkpointX, checkpointY);  // Move the player to the checkpoint
         health = 5;  // Reset health to maximum (5 hearts)
         displayHealth();  // Update health display
     }

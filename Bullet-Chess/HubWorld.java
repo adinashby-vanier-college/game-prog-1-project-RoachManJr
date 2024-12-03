@@ -25,11 +25,12 @@ public class HubWorld extends World
     {
         Player player = new Player();
         addObject(player,400,395);
+        
         DoorTrigger1 doorTrigger1 = new DoorTrigger1();
         addObject(doorTrigger1,310,150);
         DoorTrigger1Challenge doorTrigger1Challenge = new DoorTrigger1Challenge();
         addObject(doorTrigger1Challenge,484,148);
-        
+
         RoofedWallWithoutBanner roofedWallWithoutBanner = new RoofedWallWithoutBanner();
         addObject(roofedWallWithoutBanner,376,71);
         RoofedOpenedDoor roofedOpenedDoor = new RoofedOpenedDoor();

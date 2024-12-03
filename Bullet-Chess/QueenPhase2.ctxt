@@ -1,7 +1,16 @@
 #BlueJ class context
 comment0.target=QueenPhase2
-comment0.text=\r\n\ \r\n
+comment0.text=\r\n\ Represents\ the\ second\ phase\ of\ the\ Queen\ in\ the\ game.\r\n
 comment1.params=
 comment1.target=void\ act()
 comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ QueenPhase2\ wants\ to\ do.\ This\ method\ is\ called\ whenever\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-numComments=2
+comment2.params=
+comment2.target=void\ checkHealth()
+comment2.text=\r\n\ Checks\ the\ health\ of\ the\ Queen\ and\ transitions\ to\ GameWonScreen\ if\ health\ is\ 0.\r\n
+comment3.params=
+comment3.target=void\ transitionToGameWonScreen()
+comment3.text=\r\n\ Handles\ the\ transition\ to\ the\ GameWonScreen.\r\n
+comment4.params=
+comment4.target=int\ getHealth()
+comment4.text=\r\n\ Placeholder\ for\ getting\ health.\ Replace\ this\ with\ actual\ health\ logic\ from\ the\ `Queen`\ class.\r\n
+numComments=5
