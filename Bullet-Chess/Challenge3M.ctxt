@@ -7,10 +7,6 @@ comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Challenge1M.\r\n
 comment2.params=
 comment2.target=void\ prepare()
 comment2.text=\r\n\ Prepare\ the\ world\ for\ the\ start\ of\ the\ program.\ That\ is\:\ create\ the\ initial\ objects\ and\ add\ them\ to\ the\ world.\r\n
-<<<<<<< HEAD
 comment3.params=
 comment3.target=void\ act()
 numComments=4
-=======
-numComments=3
->>>>>>> 403b2e4552399d97ef16ef262d11836e450a14f9

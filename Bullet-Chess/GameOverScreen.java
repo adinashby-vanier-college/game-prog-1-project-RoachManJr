@@ -15,7 +15,7 @@ public class GameOverScreen extends World
     public GameOverScreen(Player player)
     {
         super(800, 800, 1);
-        showTextWithBigWhiteFont("Game Over", 270, 200);
+        showTextWithBigWhiteFont("Game Over", 270, 300);
         
         this.player = player;  // Pass the player reference
         

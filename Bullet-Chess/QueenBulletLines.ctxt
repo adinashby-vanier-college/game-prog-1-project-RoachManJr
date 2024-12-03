@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=QueenBulletLines
+comment1.params=direction
+comment1.target=QueenBulletLines(int)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ moveBullet()
+numComments=4

@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=QueenBulletTracker
+comment0.text=\r\n\ Bullet\ class\ that\ moves\ in\ a\ specific\ direction.\r\n
+comment1.params=x\ y\ angle\ speed
+comment1.target=QueenBulletTracker(int,\ int,\ double,\ float)
+comment1.text=\r\n\ Bullet\ constructor\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ method\ to\ move\ the\ bullet\ in\ the\ given\ direction.\r\n
+numComments=3

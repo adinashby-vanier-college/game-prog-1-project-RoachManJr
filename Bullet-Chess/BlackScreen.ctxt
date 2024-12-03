@@ -1,6 +1,7 @@
 #BlueJ class context
 comment0.target=BlackScreen
-comment0.text=\r\n\ \r\n
-comment1.params=message
-comment1.target=BlackScreen(java.lang.String)
-numComments=2
+comment1.params=
+comment1.target=BlackScreen()
+comment2.params=message
+comment2.target=void\ animateMessage(java.lang.String)
+numComments=3

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=QueenBulletRandom
+comment1.params=
+comment1.target=QueenBulletRandom()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=direction
+comment3.target=void\ setRotation(int)
+numComments=4

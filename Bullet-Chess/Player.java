@@ -13,13 +13,13 @@ public class Player extends Actor
     protected int dashCooldownCounter = 0;
     private int health;
     private boolean canShoot = true;
-    private int cooldownTime = 60;
+    private int cooldownTime = 300;
     private int delayCounter = 0;
     private boolean canTripleShot = true;
-    private int tripleShotCooldownTime = 120;
+    private int tripleShotCooldownTime = 400;
     private int tripleShotCooldownCounter = 0;
     private boolean canShootBoo = true;
-    private int booCooldownTime = 60;
+    private int booCooldownTime = 500;
     private int delayBooCounter = 0;
     private Heart[] hearts;
      private int hitCooldown;  // Timer for invincibility after being hit
@@ -368,7 +368,7 @@ public class Player extends Actor
      */
     private void handleShooting()
     {
-        if (canShoot && Greenfoot.isKeyDown("5")) {
+        if (canShoot && Greenfoot.isKeyDown("4")) {
             fireProjectile();
             canShoot = false;
         }

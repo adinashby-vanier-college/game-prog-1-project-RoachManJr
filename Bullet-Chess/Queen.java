@@ -41,22 +41,14 @@ public class Queen extends NPCs
     private int[] targetPosition;        
     private int moveSpeed = 3; 
     
-<<<<<<< HEAD
     private int health = 75; 
-=======
-    private int health = 1; 
->>>>>>> 403b2e4552399d97ef16ef262d11836e450a14f9
     private HealthBarQueen healthBar;
     
     
     
     public Queen()
     {
-<<<<<<< HEAD
         healthBar = new HealthBarQueen(75);
-=======
-        healthBar = new HealthBarQueen(1);
->>>>>>> 403b2e4552399d97ef16ef262d11836e450a14f9
     }
     /**
      * Act - do whatever the Boss_3_1 wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
@@ -75,7 +67,6 @@ public class Queen extends NPCs
         shoot1();
         shoot2();
         shoot3();
-        shoot4();
         if (bulletHorse1 != null) {
             bulletHorse1.updateCenter(getX(), getY());
         }
@@ -114,9 +105,10 @@ public class Queen extends NPCs
             currentWorld.removeObject(bulletHorse1);
             currentWorld.removeObject(this);
 
-            // Display black screen with message
-            BlackScreen blackScreen = new BlackScreen("You thought this was over?...");
+             BlackScreen blackScreen = new BlackScreen();
             currentWorld.addObject(blackScreen, currentWorld.getWidth() / 2, currentWorld.getHeight() / 2);
+            blackScreen.animateMessage("You thought this was over?...");
+        
             Greenfoot.delay(200); // Pause for a moment
 
             // Transition to new world
@@ -199,28 +191,6 @@ public class Queen extends NPCs
             getWorld().addObject(bulletHorse1, getX(), getY());
         }
     }
-
-    /**
-     * Second move: Shoot bullets at the Player.
-     */
-    public void shoot4()
-    {
-        shootCooldown4++;
-        if (shootCooldown4 >= 90) {
-            player = (Player) getWorld().getObjects(Player.class).get(0); 
-            shootCooldown4 = 0;
-            if (player != null) {
-                
-                int playerX = player.getX();
-                int playerY = player.getY();
-                
-                double angle = Math.atan2(playerY - getY(), playerX - getX());
-    
-                BulletHorse2 bulletHorse2 = new BulletHorse2(getX(), getY(), angle, speed); 
-                getWorld().addObject(bulletHorse2, getX(), getY()); 
-                }
-        }
-    }
     
     private void checkForProjectileCollision()
     {
@@ -276,4 +246,5 @@ public class Queen extends NPCs
         }
     }
 }
+
 

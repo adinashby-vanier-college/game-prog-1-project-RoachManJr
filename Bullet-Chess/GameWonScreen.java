@@ -7,6 +7,9 @@ import greenfoot.*;
  */
 public class GameWonScreen extends World
 {
+    private int scrollSpeed = 2;
+    private GreenfootImage bg; 
+    private int textYPosition = 800; 
 
     /**
      * Constructor for objects of class GameWonScreen.
@@ -14,18 +17,66 @@ public class GameWonScreen extends World
     public GameWonScreen()
     {
         super(800, 800, 1);
-        showTextWithBigWhiteFont("You win!", 180, 200);
+        bg = new GreenfootImage(800, 800);
+        setBackground(bg);
+
+        bg.setColor(Color.BLACK);
+        bg.fill();
+
+        prepareCredits();
     }
 
     /**
-     * 
+     * Prepare the scrolling credits.
      */
-    public void showTextWithBigWhiteFont(String message, int x, int y)
+    private void prepareCredits()
     {
-        GreenfootImage bg = getBackground();
-        Font font =  new  Font(50);
+        // Add credits in a list to render them line by line
+        String[] credits = {
+            "Game Title: Bullet Chess",
+            "",
+            "Created By:",
+            "",
+            "Tegran Tamrazyan - AI Programmer",
+            "Ehsan Hussain - Level Designer",
+            "Ravneet Singh - Combat Designer",
+            "Lucas Coveyduck - UI Designer/ Transition Specialist",
+            "",
+            "Special Thanks To:",
+            "Chat Gpt , jk",
+            "And You, the Player!",
+            "",
+            "Thank You for Playing!",
+        };
+
+        int startY = textYPosition; 
+        int lineHeight = 40; 
+        Font font = new Font("Arial", true, false, 25);
         bg.setFont(font);
         bg.setColor(Color.WHITE);
-        bg.drawString(message, x, y);
+
+        for (String line : credits) {
+            bg.drawString(line, 100, startY);
+            startY += lineHeight; // Move to the next line
+        }
+    }
+
+    /**
+     * Scrolling credits effect.
+     */
+    public void act()
+    {
+        textYPosition -= scrollSpeed;
+        bg = new GreenfootImage(800, 800);
+        bg.setColor(Color.BLACK);
+        bg.fill();
+
+        prepareCredits();
+        setBackground(bg);
+
+      
+        if (textYPosition + bg.getHeight() < 0) {
+            Greenfoot.stop(); 
+        }
     }
 }
