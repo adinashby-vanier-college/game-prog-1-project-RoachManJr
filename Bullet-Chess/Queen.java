@@ -209,8 +209,8 @@ public class Queen extends NPCs
         {
             if (isTouching(AOE.class)) 
             {
-                health -= 1;
-                healthBar.decreaseHealth(1); 
+                health -= 3;
+                healthBar.decreaseHealth(3); 
                 getWorld().removeObject(aoe);
             }
         }
@@ -239,8 +239,8 @@ public class Queen extends NPCs
         {
             if (isTouching(TripleShotProjectile.class)) 
             {
-                health -= 1;
-                healthBar.decreaseHealth(1); 
+                health -= 3;
+                healthBar.decreaseHealth(3); 
                 getWorld().removeObject(tripleshotProjectile);
             }
         }
