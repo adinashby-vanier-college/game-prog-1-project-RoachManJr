@@ -41,14 +41,22 @@ public class Queen extends NPCs
     private int[] targetPosition;        
     private int moveSpeed = 3; 
     
+<<<<<<< HEAD
     private int health = 75; 
+=======
+    private int health = 1; 
+>>>>>>> 403b2e4552399d97ef16ef262d11836e450a14f9
     private HealthBarQueen healthBar;
     
     
     
     public Queen()
     {
+<<<<<<< HEAD
         healthBar = new HealthBarQueen(75);
+=======
+        healthBar = new HealthBarQueen(1);
+>>>>>>> 403b2e4552399d97ef16ef262d11836e450a14f9
     }
     /**
      * Act - do whatever the Boss_3_1 wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
