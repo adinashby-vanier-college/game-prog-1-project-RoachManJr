@@ -166,7 +166,7 @@ public class QueenPhase2 extends NPCs
     private void shoot1()
     {
         shootCooldown++;
-        if (shootCooldown >= 100) {
+        if (shootCooldown >= 60) {
             shootCooldown = 0; 
             
             QueenBulletLines rightBullet = new QueenBulletLines(0);
@@ -185,7 +185,7 @@ public class QueenPhase2 extends NPCs
     }
     private void shoot2(){
         shootCooldown2++;
-            if (shootCooldown2 >= 100) {
+            if (shootCooldown2 >= 60) {
             shootCooldown2 = 0;   
                 
                 
@@ -219,7 +219,7 @@ public class QueenPhase2 extends NPCs
     public void shoot4()
     {
         shootCooldown4++;
-        if (shootCooldown4 >= 140) {
+        if (shootCooldown4 >= 100) {
             player = (Player) getWorld().getObjects(Player.class).get(0); 
             shootCooldown4 = 0;
             if (player != null) {
@@ -237,7 +237,7 @@ public class QueenPhase2 extends NPCs
     
     public void shoot5(){
         shootCooldown5++;
-        if (shootCooldown5 == 50) {
+        if (shootCooldown5 == 40) {
             shootCooldown5 = 0;
             QueenBulletRandom bullet = new QueenBulletRandom(); 
             int randomDirection = Greenfoot.getRandomNumber(360); 

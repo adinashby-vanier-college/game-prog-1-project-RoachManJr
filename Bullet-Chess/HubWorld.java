@@ -25,7 +25,7 @@ public class HubWorld extends World
     {
         Player player = new Player();
         addObject(player,400,395);
-        
+
         DoorTrigger1 doorTrigger1 = new DoorTrigger1();
         addObject(doorTrigger1,310,150);
         DoorTrigger1Challenge doorTrigger1Challenge = new DoorTrigger1Challenge();
@@ -60,7 +60,6 @@ public class HubWorld extends World
         InfoPaperShoot infoPaperShoot = new InfoPaperShoot();
         addObject(infoPaperShoot,580,585);
     }
-
      public void act() {
 
     }

@@ -2,44 +2,61 @@ import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
 
-/**
- * 
- */
 public class Player extends Actor
 {
+    
     protected int shootDelay = 20;
-    protected int dashDelay = 120;
     protected int cooldownCounter = 0;
-    protected int dashCooldownCounter = 0;
-    private int health;
+    
     private boolean canShoot = true;
-    private int cooldownTime = 300;
+    private int cooldownTime = 400;
     private int delayCounter = 0;
+    
     private boolean canTripleShot = true;
     private int tripleShotCooldownTime = 400;
     private int tripleShotCooldownCounter = 0;
+    private static boolean isTripleShotUnlocked = false;
+    
     private boolean canShootBoo = true;
     private int booCooldownTime = 500;
     private int delayBooCounter = 0;
+    private static boolean isBoomerangUnlocked = false;
+    
+    private static boolean isBombUnlocked = false;
+    
+    protected int dashDelay = 120;
+    protected int dashCooldownCounter = 0;
+    
+    private int health;
     private Heart[] hearts;
+    
      private int hitCooldown;  // Timer for invincibility after being hit
     private static final int INVINCIBILITY_TIME = 60;  // Cooldown time (in frames, 60 frames = 1 second)
     private boolean invincible;  // Whether the player is currently invincible
      private int flashTimer;  // Timer for controlling the flashing effect
      // Static variables for saving state
-    public Player()
+     
+    private int cooldownBarBomb = 400; 
+        private CooldownAbilityBarBomb cooldownAbilityBarBomb;
+        
+    private int cooldownBarTriple = 400; 
+        private CooldownAbilityBarTriple cooldownAbilityBarTriple;
+    
+    private int cooldownBarBoomerang = 500; 
+        private CooldownAbilityBarBoomerang cooldownAbilityBarBoomerang;
+   public Player()
     {
         health = 5;
         hearts = new Heart[health];
-        hitCooldown = 0;  // Start with no cooldown
-        invincible = false;  // Player is not invincible initially
+        hitCooldown = 0;  
+        invincible = false;  
         flashTimer = 0;
+        
+        cooldownAbilityBarBomb = new CooldownAbilityBarBomb(400);
+        cooldownAbilityBarTriple = new CooldownAbilityBarTriple(400);
+        cooldownAbilityBarBoomerang = new CooldownAbilityBarBoomerang(500);
     }
-
-    /**
-     * 
-     */
-    public void act()
+   public void act()
     {
         movePlayer();
         canMoveLeft();
@@ -50,6 +67,9 @@ public class Player extends Actor
         doAction();
         actBoomerang();
         transitionToSystemOfWorlds();
+        inspectPaper();
+        inspectPaper2();
+        inspectPaper3();
         if (Greenfoot.mouseClicked(null) && cooldownCounter <= 0) {
             shootProjectile();
             cooldownCounter = shootDelay;
@@ -57,7 +77,7 @@ public class Player extends Actor
         if (cooldownCounter > 0) {
             cooldownCounter = cooldownCounter - 1;
         }
-        if (Greenfoot.isKeyDown("q") && dashCooldownCounter <= 0) {
+        if (Greenfoot.isKeyDown("Shift") && dashCooldownCounter <= 0) {
             dashing();
             dashCooldownCounter = dashDelay;
         }
@@ -94,29 +114,37 @@ public class Player extends Actor
         if (health <= 0) {
             death();
         }
+        
     }
-    /**
-     * 
-     */
+        private void inspectPaper() {
+        Actor infoPaper = getOneIntersectingObject(InfoPaperTriple.class);
+        if (infoPaper != null) {
+            isTripleShotUnlocked = true;
+            getWorld().removeObject(infoPaper); // Remove the paper after inspecting
+        }
+    }
+        private void inspectPaper2() {
+        Actor infoPaper2 = getOneIntersectingObject(InfoPaperBomb.class);
+        if (infoPaper2 != null) {
+            isBombUnlocked = true;
+            getWorld().removeObject(infoPaper2); // Remove the paper after inspecting
+        }
+        
+    }
+        private void inspectPaper3() {
+        Actor infoPaper3 = getOneIntersectingObject(InfoPaperBoomerang.class);
+        if (infoPaper3 != null) {
+            isBoomerangUnlocked = true;
+            getWorld().removeObject(infoPaper3); // Remove the paper after inspecting
+        }
+    }
     private void movePlayer()
     {
-        if (Greenfoot.isKeyDown("w") && canMoveUp()) {
-            setLocation(getX(), getY() - 4);
-        }
-        if (Greenfoot.isKeyDown("s") && canMoveDown()) {
-            setLocation(getX(), getY() + 4);
-        }
-        if (Greenfoot.isKeyDown("a") && canMoveLeft()) {
-            setLocation(getX() - 4, getY());
-        }
-        if (Greenfoot.isKeyDown("d") && canMoveRight()) {
-            setLocation(getX() + 4, getY());
-        }
+        if (Greenfoot.isKeyDown("w") && canMoveUp()) {setLocation(getX(), getY() - 4);}
+        if (Greenfoot.isKeyDown("s") && canMoveDown()) {setLocation(getX(), getY() + 4);}
+        if (Greenfoot.isKeyDown("a") && canMoveLeft()) {setLocation(getX() - 4, getY());}
+        if (Greenfoot.isKeyDown("d") && canMoveRight()) {setLocation(getX() + 4, getY());}
     }
-
-    /**
-     * 
-     */
     public boolean canMoveLeft()
     {
         boolean canMoveLeft = true;
@@ -127,10 +155,6 @@ public class Player extends Actor
         }
         return canMoveLeft;
     }
-
-    /**
-     * 
-     */
     public boolean canMoveRight()
     {
         boolean canMoveRight = true;
@@ -141,10 +165,6 @@ public class Player extends Actor
         }
         return canMoveRight;
     }
-
-    /**
-     * 
-     */
     public boolean canMoveUp()
     {
         boolean canMoveUp = true;
@@ -157,10 +177,6 @@ public class Player extends Actor
         }
         return canMoveUp;
     }
-
-    /**
-     * 
-     */
     public boolean canMoveDown()
     {
         boolean canMoveDown = true;
@@ -171,14 +187,9 @@ public class Player extends Actor
         }
         return canMoveDown;
     }
-
-    /**
-     * 
-     */
-    private void shootProjectile()
+    private void shootProjectile() 
     {
         if (Greenfoot.mouseClicked(null)) {
-            
             MouseInfo mouse = Greenfoot.getMouseInfo();
             if (mouse != null) {
                 int mouseX = mouse.getX();
@@ -190,11 +201,7 @@ public class Player extends Actor
             }
         }
     }
-
-            /**
-             * 
-             */
-            private void dashing()
+    private void dashing()
     {
         World world = getWorld();
         int dashDistance = 40;  
@@ -203,10 +210,9 @@ public class Player extends Actor
         int imageHeight = getImage().getHeight();
         
         if (dashCooldownCounter <= 0) {
-            if (Greenfoot.isKeyDown("q")) {
+            if (Greenfoot.isKeyDown("Shift")) {
                 
                 if (Greenfoot.isKeyDown("w") && Greenfoot.isKeyDown("a")) {
-                    // Dash up-left
                     for (int i = 0; i < dashSpeed; i++) {
                         if (!checkCollision(-dashDistance/2, -dashDistance/2)) {
                             setLocation(getX() - dashDistance/2, getY() - dashDistance/2);
@@ -214,7 +220,6 @@ public class Player extends Actor
                         Greenfoot.delay(1);
                     }
                 } else if (Greenfoot.isKeyDown("w") && Greenfoot.isKeyDown("d")) {
-                    // Dash up-right
                     for (int i = 0; i < dashSpeed; i++) {
                         if (!checkCollision(dashDistance/2, -dashDistance/2)) {
                             setLocation(getX() + dashDistance/2, getY() - dashDistance/2);
@@ -222,7 +227,6 @@ public class Player extends Actor
                         Greenfoot.delay(1);
                     }
                 } else if (Greenfoot.isKeyDown("s") && Greenfoot.isKeyDown("a")) {
-                    // Dash down-left
                     for (int i = 0; i < dashSpeed; i++) {
                         if (!checkCollision(-dashDistance/2, dashDistance/2)) {
                             setLocation(getX() - dashDistance/2, getY() + dashDistance/2);
@@ -230,7 +234,6 @@ public class Player extends Actor
                         Greenfoot.delay(1);
                     }
                 } else if (Greenfoot.isKeyDown("s") && Greenfoot.isKeyDown("d")) {
-                    // Dash down-right
                     for (int i = 0; i < dashSpeed; i++) {
                         if (!checkCollision(dashDistance/2, dashDistance/2)) {
                             setLocation(getX() + dashDistance/2, getY() + dashDistance/2);
@@ -238,9 +241,7 @@ public class Player extends Actor
                         Greenfoot.delay(1);
                     }
                 }
-                // Check for straight dashes
                 else if (Greenfoot.isKeyDown("w")) {
-                    // Dash upwards
                     for (int i = 0; i < dashSpeed; i++) {
                         if (!checkCollision(0, -dashDistance)) {
                             setLocation(getX(), getY() - dashDistance);
@@ -248,7 +249,6 @@ public class Player extends Actor
                         Greenfoot.delay(1);
                     }
                 } else if (Greenfoot.isKeyDown("a")) {
-                    // Dash left
                     for (int i = 0; i < dashSpeed; i++) {
                         if (!checkCollision(-dashDistance, 0)) {
                             setLocation(getX() - dashDistance, getY());
@@ -256,7 +256,6 @@ public class Player extends Actor
                         Greenfoot.delay(1);
                     }
                 } else if (Greenfoot.isKeyDown("s")) {
-                    // Dash downwards
                     for (int i = 0; i < dashSpeed; i++) {
                         if (!checkCollision(0, dashDistance)) {
                             setLocation(getX(), getY() + dashDistance);
@@ -264,7 +263,6 @@ public class Player extends Actor
                         Greenfoot.delay(1);
                     }
                 } else if (Greenfoot.isKeyDown("d")) {
-                    // Dash right
                     for (int i = 0; i < dashSpeed; i++) {
                         if (!checkCollision(dashDistance, 0)) {
                             setLocation(getX() + dashDistance, getY());
@@ -272,7 +270,6 @@ public class Player extends Actor
                         Greenfoot.delay(1);
                     }
                 }
-                // Default dash (up)
                 else {
                     for (int i = 0; i < dashSpeed; i++) {
                         if (!checkCollision(0, -dashDistance)) {
@@ -281,49 +278,46 @@ public class Player extends Actor
                         Greenfoot.delay(1);
                     }
                 }
-                
-                
                 dashCooldownCounter = dashDelay;
             }
         } else {
-            
             dashCooldownCounter--;
         }
     }
-
     private boolean checkCollision(int xOffset, int yOffset)
     {
         int imageWidth = getImage().getWidth();
         int imageHeight = getImage().getHeight();
-        
-        
         if (getOneObjectAtOffset(xOffset, yOffset, Assets.class) != null) {
             return true;
         }
-        
         return false; 
     }
-
     public void actBoomerang()
     {
         handleBoomerang();
         boomerangCooldown();
     }
-    
-    /**
-     * 
-     */
     private void handleBoomerang()
     {
-        if (canShootBoo && Greenfoot.isKeyDown("2")) {
+        if (isBoomerangUnlocked && canShootBoo && Greenfoot.isKeyDown("x")) {
             fireBoomerang();
             canShootBoo = false;
+            cooldownBarBoomerang = 500;
+            
+            if (cooldownAbilityBarBoomerang.getWorld() == null && getWorld() != null) {
+                getWorld().addObject(cooldownAbilityBarBoomerang, 50, 120); 
+            }
+    
+            cooldownAbilityBarBoomerang.resetCooldown();
+        }
+        if (cooldownBarBoomerang > 0) {
+            cooldownBarBoomerang -= 1;
+            cooldownAbilityBarBoomerang.decreaseCooldown(1);
+        } else if (cooldownAbilityBarBoomerang.getWorld() != null) {
+            getWorld().removeObject(cooldownAbilityBarBoomerang); 
         }
     }
-    
-    /**
-     * 
-     */
     private void fireBoomerang()
     {
         MouseInfo mouse = Greenfoot.getMouseInfo();
@@ -339,45 +333,51 @@ public class Player extends Actor
             boomerangShot.setRotation(angle);
         }
     }
-    
-    /**
-     * 
-     */
     private void boomerangCooldown()
     {
         if ( ! canShootBoo) {
-            delayBooCounter = delayBooCounter + 1;
-            if (delayBooCounter >= booCooldownTime) {
+            delayBooCounter++;
+            cooldownBarBoomerang--;
+            cooldownAbilityBarBoomerang.decreaseCooldown(1);
+            
+            
+            if (cooldownBarBoomerang <= 0) {
                 canShootBoo = true;
                 delayBooCounter = 0;
+                if (cooldownAbilityBarBoomerang.getWorld() != null) {
+                    getWorld().removeObject(cooldownAbilityBarBoomerang);
+                }
             }
         }
     }
-    
-    /**
-     * 
-     */
     public void performAction()
     {
         handleShooting();
         manageCooldown();
     }
-
-    /**
-     * 
-     */
     private void handleShooting()
     {
-        if (canShoot && Greenfoot.isKeyDown("4")) {
+            if (isBombUnlocked && canShoot && Greenfoot.isKeyDown("v")) {
             fireProjectile();
             canShoot = false;
+            cooldownBarBomb = 400; 
+    
+            
+            if (cooldownAbilityBarBomb.getWorld() == null && getWorld() != null) {
+                getWorld().addObject(cooldownAbilityBarBomb, 50, 200); 
+            }
+    
+            cooldownAbilityBarBomb.resetCooldown();
+        }
+ 
+        if (cooldownBarBomb > 0) {
+            cooldownBarBomb -= 1;
+            cooldownAbilityBarBomb.decreaseCooldown(1);
+        } else if (cooldownAbilityBarBomb.getWorld() != null) {
+            getWorld().removeObject(cooldownAbilityBarBomb); 
         }
     }
-
-    /**
-     * 
-     */
-    private void fireProjectile()
+   private void fireProjectile()
     {
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if (mouse != null) {
@@ -392,45 +392,48 @@ public class Player extends Actor
             aoe.setRotation(angle);
         }
     }
-
-    /**
-     * 
-     */
     private void manageCooldown()
     {
-        if ( ! canShoot) {
-            delayCounter = delayCounter + 1;
-            if (delayCounter >= cooldownTime) {
+            if (!canShoot) {
+            delayCounter++;
+            cooldownBarBomb--; 
+            cooldownAbilityBarBomb.decreaseCooldown(1); 
+            
+            
+            if (cooldownBarBomb <= 0) {
                 canShoot = true;
                 delayCounter = 0;
+                if (cooldownAbilityBarBomb.getWorld() != null) {
+                    getWorld().removeObject(cooldownAbilityBarBomb); 
+                }
             }
         }
     }
-
-    /**
-     * 
-     */
     public void doAction()
     {
         handleTripleShot();
         manageTripleShotCooldown();
     }
-
-    /**
-     * 
-     */
     private void handleTripleShot()
     {
-        if (canTripleShot && Greenfoot.isKeyDown("3")) {
+        if (isTripleShotUnlocked && canTripleShot && Greenfoot.isKeyDown("c")) {
             shootTripleShot();
             canTripleShot = false;
+            cooldownBarTriple = 400;
             
+            if (cooldownAbilityBarTriple.getWorld() == null && getWorld() != null) {
+                getWorld().addObject(cooldownAbilityBarTriple, 50, 160); 
+            }
+    
+            cooldownAbilityBarTriple.resetCooldown();
+        }
+        if (cooldownBarTriple > 0) {
+            cooldownBarTriple -= 1;
+            cooldownAbilityBarTriple.decreaseCooldown(1);
+        } else if (cooldownAbilityBarTriple.getWorld() != null) {
+            getWorld().removeObject(cooldownAbilityBarTriple); 
         }
     }
-
-    /**
-     * 
-     */
     private void shootTripleShot()
     {
         MouseInfo mouse = Greenfoot.getMouseInfo();
@@ -450,21 +453,22 @@ public class Player extends Actor
             }
         }
     }
-
-    /**
-     * 
-     */
     private void manageTripleShotCooldown()
     {
         if ( ! canTripleShot) {
-            tripleShotCooldownCounter = tripleShotCooldownCounter + 1;
-            if (tripleShotCooldownCounter >= tripleShotCooldownTime) {
+            tripleShotCooldownCounter++;
+            cooldownBarTriple--;
+            cooldownAbilityBarTriple.decreaseCooldown(1);
+            
+            if (cooldownBarTriple <= 0) {
                 canTripleShot = true;
                 tripleShotCooldownCounter = 0;
+                if (cooldownAbilityBarTriple.getWorld() != null) {
+                    getWorld().removeObject(cooldownAbilityBarTriple);
+                }
             }
         }
     }
-    
     public void takeDamage(int damage){
         if (invincible) return;  // Prevent taking damage if invincible
         
@@ -476,17 +480,14 @@ public class Player extends Actor
         
         flashTimer = 0;
     }
-    
     public void heal(int amount){
         health += amount;
         if (health > 5) health = 5;
     }
-    
     public boolean isDead()
     {
         return health <= 0;
     }
-    
     public void displayHealth()
     {
          for (int i = 0; i < 5; i++)
@@ -534,16 +535,14 @@ public class Player extends Actor
     }
     public void death()
     {
-        // Add your death logic here
+        Greenfoot.playSound("Bottle Break.wav"); 
+        getWorld().removeObject(this);  
         
-        // For example:
-        // - Play a death sound
-        // - Remove the player from the world
-        Greenfoot.playSound("Bottle Break.wav");  // You can add a death sound file here
-        getWorld().removeObject(this);  // Remove the player from the world
-        
-        // Optionally, show a "Game Over" message, or reset the game
         Greenfoot.setWorld(new GameOverScreen(this));
+        
+        isTripleShotUnlocked = false;
+        isBombUnlocked = false;
+        isBoomerangUnlocked = false;
     }
     // Respawn the player at the checkpoint position and reset health
     public void respawn()
@@ -551,29 +550,26 @@ public class Player extends Actor
         health = 5;  // Reset health to maximum (5 hearts)
         displayHealth();  // Update health display
     }
-    
     public void transitionToSystemOfWorlds()
     {
         if (isTouching(InfoPaperTriple.class)){
             World systemOfTriple =  new  SystemOfTriple();
-            Greenfoot.setWorld(systemOfTriple); // go to (this) world
+            Greenfoot.setWorld(systemOfTriple); 
         } else if (isTouching(InfoPaperBomb.class)){
             World systemOfBomb =  new  SystemOfBomb();
-            Greenfoot.setWorld(systemOfBomb); // go to (this) world
+            Greenfoot.setWorld(systemOfBomb);
         } else if (isTouching(InfoPaperBoomerang.class)){
             World systemOfBoomerang =  new  SystemOfBoomerang();
-            Greenfoot.setWorld(systemOfBoomerang); // go to (this) world
+            Greenfoot.setWorld(systemOfBoomerang);
         } else if (isTouching(InfoPaperDoor.class)){
             World systemOfDoor =  new  SystemOfDoor();
-            Greenfoot.setWorld(systemOfDoor); // go to (this) world
+            Greenfoot.setWorld(systemOfDoor);
         } else if (isTouching(InfoPaperDash.class)){
             World systemOfDash =  new  SystemOfDash();
-            Greenfoot.setWorld(systemOfDash); // go to (this) world
+            Greenfoot.setWorld(systemOfDash);
         } else if (isTouching(InfoPaperShoot.class)){
             World systemOfShoot =  new  SystemOfShoot();
-            Greenfoot.setWorld(systemOfShoot); // go to (this) world
+            Greenfoot.setWorld(systemOfShoot);
         }
-        //World gameWonWorld =  new  GameWonWorld();
-        //Greenfoot.setWorld(gameWonWorld);
     }
 }

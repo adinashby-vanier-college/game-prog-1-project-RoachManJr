@@ -14,7 +14,7 @@ public class SystemOfBoomerang extends World
     public SystemOfBoomerang()
     {
         super(800, 800, 1);
-        showTextWithBigBlackFont("Press 2 to throw a boomerang.", 75, 200);
+        showTextWithBigBlackFont("Press X to throw a boomerang.", 75, 200);
         showTextWithSmallBlackFont("Press SPACEBAR to continue!", 200, 700);
     }
 

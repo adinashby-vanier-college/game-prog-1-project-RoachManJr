@@ -14,7 +14,7 @@ public class SystemOfBomb extends World
     public SystemOfBomb()
     {
         super(800, 800, 1);
-        showTextWithBigBlackFont("Press 5 to throw a bomb.", 150, 200);
+        showTextWithBigBlackFont("Press V to throw a bomb.", 150, 200);
         showTextWithSmallBlackFont("Press SPACEBAR to continue!", 200, 700);
     }
 

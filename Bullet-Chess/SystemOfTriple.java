@@ -14,7 +14,7 @@ public class SystemOfTriple extends World
     public SystemOfTriple()
     {
         super(800, 800, 1);
-        showTextWithBigBlackFont("Press 3 to shoot three bullets.", 85, 200);
+        showTextWithBigBlackFont("Press C to shoot three bullets.", 85, 200);
         showTextWithSmallBlackFont("Press SPACEBAR to continue!", 200, 700);
     }
 

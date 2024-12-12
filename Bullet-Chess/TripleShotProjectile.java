@@ -2,7 +2,7 @@ import lang.stride.*;
 import java.util.*;
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class TripleShotProjectile extends Player {
+public class TripleShotProjectile extends Projectiles {
     private int speed = 5;
     private int distanceTraveled = 0; // Tracks the distance traveled
     private int maxDistance = 300; // Max distance before disappearing (change this value as needed)

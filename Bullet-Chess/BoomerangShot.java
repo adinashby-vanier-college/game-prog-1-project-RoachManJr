@@ -2,7 +2,7 @@ import lang.stride.*;
 import java.util.*;
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class BoomerangShot extends Player {
+public class BoomerangShot extends Projectiles {
     private int distanceTraveled = 0;
     private int splitDistance = 400; // Distance after which it splits (for the main projectile)
     private int maxTravelDistance = 400; // Maximum distance before the split projectiles disappear

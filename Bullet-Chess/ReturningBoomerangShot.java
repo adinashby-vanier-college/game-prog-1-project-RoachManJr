@@ -3,7 +3,7 @@ import greenfoot.*;
 /**
  * Bullet class that moves in a specific direction.
  */
-public class ReturningBoomerangShot extends Player
+public class ReturningBoomerangShot extends Projectiles
 {
     private float speed;
     private double angle;
